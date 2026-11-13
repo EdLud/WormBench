@@ -397,9 +397,9 @@ records `last_burst`; the HUD only reads it.
 
 ## Next
 
-Part 2, *Weapons*, goes through a weapon component in full: every field of
-its data, the `ctx` its `install` receives, and what `wa.weapons.replace`
-can change.
+[Part 2, *Weapons*](starting-guide-2-weapons.md), goes through a weapon
+component in full: every field of its data, the `ctx` its `install`
+receives, and what `wa.weapons.replace` can change.
 
 See also:
 

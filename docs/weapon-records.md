@@ -244,7 +244,7 @@ per-shot `wa.weapons.launch` overrides still use sprite names or numeric IDs.
 
 The weapon name, panel icon, ammo/crate defaults, component options and Lua
 callbacks also use their own declarations. See the
-[starting guide](starting-guide-1-your-first-mod.md).
+[starting guide, part 2](starting-guide-2-weapons.md).
 
 Profiles may override these same named fields under
 `[weapon_settings."<id>".record]`, including stock weapons. Their callbacks
