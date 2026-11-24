@@ -71,7 +71,7 @@ return {
   },
 
   install = function(ctx)
-    -- ctx.data: the defaults above, with the settings of the profile over them.
+    -- ctx.data: the defaults above, with the profile settings over them.
     local p = ctx.position
     wa.log(("on %s, column %d: ammo %d, delay %d"):format(
       p.row, p.column, ctx.data.ammo.round_start, ctx.data.delay))
@@ -124,12 +124,12 @@ return {
 
 ### Defaults, then the profile
 
-A weapon's data starts from its `defaults`. A profile gives settings in
+A weapon's data starts from its `defaults`. A profile sets values in
 `[weapon_settings."<id>"]`; the loader's **Manage Weapon Panel** writes them
-there. Each setting the profile gives replaces that field, and every field it
+there. Each setting in the profile replaces that field, and every field it
 leaves out keeps the default. `install` reads the result as `ctx.data`.
 
-The profile of this part gives the Scatter Bazooka one setting:
+This part's profile changes one Scatter Bazooka setting:
 
 ```toml
 [weapon_settings."guide.scatter_bazooka"]
@@ -150,7 +150,7 @@ from the profile.
 ### Every field
 
 `defaults` and a profile name a few fields differently: `defaults` keep the
-ammo fields in one table, and a profile gives crate odds as a share. The
+ammo fields in one table, and a profile sets crate odds as a share. The
 loader row is what a player sees in **Manage Weapon Panel**.
 
 | In `defaults` | In a profile | Loader row | What it is |
@@ -160,7 +160,7 @@ loader row is what a player sees in **Manage Weapon Panel**.
 | `ammo.crate_collect` | `crate_collect` | Ammo per crate | Ammo from one crate, up to 99. `-1` is infinite. |
 | `ammo.stockpiling` | `stockpiling` | Between rounds | `"off"`: each round starts with `round_start` again. `"on"`: it adds to what was left. `"anti"`: what was left is all there is. |
 | `delay` | `delay` | Delay (turns) | Turns before the weapon can be used. |
-| `crate.chance_pct` | `crate_pct` | Crate chance | How often it comes in a crate. `defaults` give a weight against the other weapons of its kind: 20 is a WSC crate probability of 1, 100 is 5, the most the WA scheme editor offers, and 0 is never. A profile gives a share of those crates, in %. |
+| `crate.chance_pct` | `crate_pct` | Crate chance | How often it comes in a crate. `defaults` set a weight against the other weapons of its kind: 20 is a WSC crate probability of 1, 100 is 5, the most the WA scheme editor offers, and 0 is never. A profile sets a share of those crates, in %. |
 | `crate.type` | `crate_type` | Comes in | `"weapon"`, `"utility"` or `"super"` crates. |
 | `after_use` | `after_use` | After use | What the turn does after a use: `"end"` ends it at once, `"retreat"` ends it after the retreat time, `"continue"` goes on. |
 | `shots` | `shots` | Shots per use | 1 to 9 shots for one use, as the two of the stock Shotgun. |
@@ -247,7 +247,7 @@ out, and the loader and the game agree.
 ### An icon of its own
 
 Part 1 left the Moon Grenade with the icon of the stock Grenade. One line in
-its `replace` gives it one of its own:
+its `replace` adds its own icon:
 
 ```lua
     wa.weapons.replace{
@@ -255,7 +255,7 @@ its `replace` gives it one of its own:
       panel_icon = "sprites/moon_grenade.png",
 ```
 
-One line in its `mod.toml` block shows the same picture in the loader:
+One line in its `mod.toml` block shows the same icon in the loader:
 
 ```toml
 icon = "sprites/moon_grenade.png"
@@ -271,7 +271,7 @@ icon = "sprites/moon_grenade.png"
 - `panel_icon = "banana"` borrows the icon of a stock weapon instead, by its
   name. Without `panel_icon`, a weapon shows the icon of the weapon it copies:
   the Scatter Bazooka shows the Bazooka's.
-- `icon` in `mod.toml` is only the picture in the loader.
+- `icon` in `mod.toml` is only the loader icon.
 
 ### The record
 
@@ -318,7 +318,7 @@ What `on_fire` replaces depends on how the base fires:
 - A utility, the Jet Pack or Skip Go: what WA does for it.
 
 The rest of the shot stays as WA has it: the worm fires, the ammo goes down,
-and the turn ends as `after_use` says.
+and the turn ends as `after_use` sets.
 
 The `fire` table has `x`, `y`, `vx`, `vy`, `worm` (the worm firing),
 `weapon` (its id) and `power` (how far the shot was charged, 0 to 1); the
@@ -375,7 +375,7 @@ down. `weapon = "stock.<name>"` fires the stock weapon.
 
 ## Next
 
-Part 3, *Options and features*, gives a weapon settings of its own that
+Part 3, *Options and features*, adds weapon settings that
 players change in the loader (`[[components.options]]`, `ctx.option`), and
 builds a feature: a component that isn't a weapon.
 

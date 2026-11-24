@@ -112,7 +112,7 @@ starting_guide/
 ```
 
 `mod.toml` and the `profiles/` folder have fixed names. The rest is yours to
-arrange; `mod.toml` says where each file is.
+arrange; `mod.toml` points to each file.
 
 ### mod.toml
 
@@ -138,15 +138,15 @@ default_position = { row = "F2", column = 6 }
 |---|---|
 | `id` | The mod's id: lowercase letters, digits, `.`, `_` and `-`. |
 | `name`, `version`, `author` | What the loader shows on the mod's card. |
-| `api_version`, `format_version` | `4` and `2`: the Lua API and the `mod.toml` format the mod is written for. WormForge refuses a mod written for others, and says why. |
+| `api_version`, `format_version` | `4` and `2`: the Lua API and the `mod.toml` format the mod is written for. WormForge refuses a mod written for others, and reports why. |
 | `[[components]]` | One block per weapon or feature. |
 | component `id` | Unique among all installed mods: up to 64 lowercase letters, digits, `.`, `_` and `-`. `stock.` is taken: it names the stock weapons. Start yours with something of your own, as `guide.` here. |
 | `type` | `"weapon"` or `"feature"`. |
 | `name` | What players read, in the loader and, for a weapon, in the game. |
 | `description` | A sentence for the loader. |
 | `entry` | The component's Lua file, inside the mod. |
-| `icon` | A weapon's picture in the loader: one of WA's weapons by name, or a 32x32 `.png` in the mod. |
-| `default_position` | Where the weapon goes when a player adds it to a profile: a row (`"F1"` to `"F12"`, or `"utility"`) and a column from 1 to 10. If that place is taken, the first free one. WA's own F2 row ends at column 5, so column 6 is free. |
+| `icon` | The weapon's icon in the loader: one of WA's weapons by name, or a 32x32 `.png` in the mod. |
+| `default_position` | Where the weapon goes when a player adds it to a profile: a row (`"F1"` to `"F12"`, or `"utility"`) and a column from 1 to 10. If that place is taken, the first free one. The stock F2 row ends at column 5, so column 6 is free. |
 
 Everything else `mod.toml` can hold is optional; later parts bring it in as
 they need it.
@@ -224,12 +224,12 @@ return {
   pixels away, clear of the blast and of each other. `wa.random(a, b)` rolls
   a whole number from `a` to `b` for each one's angle, distance and radius,
   so no two throws dig quite alike. `wa.math.cos` and `wa.math.sin` turn the
-  angle into a position (rule 3 below says why not `math.cos`).
+  angle into a position (rule 3 below explains why not `math.cos`).
 - `wa.on.hud` adds a line to the screen once a grenade has burst. Every
   match runs the file afresh, so `last_burst` starts empty each match.
 
 In the game's weapon panel, the Moon Grenade shows the Grenade's icon, the
-weapon it copies. Part 2 gives it one of its own.
+weapon it copies. Part 2 adds its own icon.
 
 ### The profile
 
@@ -250,7 +250,7 @@ ammo = -1
 ```
 
 - `[weapons]` is the panel. `true` puts a weapon at its default position; a
-  profile saved by the loader gives each one a row and a column instead. The
+  profile saved by the loader assigns each one a row and a column instead. The
   stock weapons are listed the same way, by id.
 - A profile that lists weapons owns the whole panel: the weapons it doesn't
   list aren't in the game. This one has four.
@@ -270,7 +270,7 @@ ammo = -1
    a working copy of the mod's profile; saving it under a name of yours makes
    it one of your profiles.
 4. Start an offline game: a hotseat match with two teams is quickest. As it
-   loads, the game says *Weapons come from the WormForge profile, not the
+   loads, the game displays *Weapons come from the WormForge profile, not the
    lobby's weapon settings*.
 5. Press F2 until the Moon Grenade is selected, and throw it at the ground.
    It floats, bursts small, and three craters open in the land below it.
@@ -293,8 +293,8 @@ Two files next to `WA.exe` tell you what happened:
 
 | What's wrong | Where it shows |
 |---|---|
-| A mistake in `mod.toml` | The mod's card in the WormForge Mods window says *doesn't load:*, with every problem. |
-| A Lua error as the match loads: a typo, a field that doesn't exist | The game says *WormForge: the profile's mods failed to load (...). Playing plain WA.*, and `wkluaerror.txt` has the error. |
+| A mistake in `mod.toml` | The mod's card in the WormForge Mods window shows *doesn't load:*, with every problem. |
+| A Lua error as the match loads: a typo, a field that doesn't exist | The game displays *WormForge: the profile's mods failed to load (...). Playing plain WA.*, and `wkluaerror.txt` has the error. |
 | A Lua error in a callback during play | `wkluaerror.txt` names the callback and the error (`missile on_explode: ...`); the game goes on. |
 
 ## Changing your mod
@@ -315,14 +315,14 @@ The other players don't need your mod installed:
 - When the **host lights the ready bulb**, WormForge copies the host's
   profile and every mod it uses (with the libraries they need), and sends
   them to every player in the lobby. The game can start only once every
-  player has them; until then the host's lobby says what the start is
+  player has them; until then the host's lobby shows what the start is
   waiting for.
 - Every machine then plays the host's copy: the same code and the same
   settings, whatever each player has in their own `Mods/`.
 - What the host edits after lighting the bulb doesn't reach that game. Put
   the bulb out and light it again to send the new version.
 - Every player needs WormForge, the same version as the host's. A player
-  without it can't play a game with mods: the start waits, and says so.
+  without it can't play a game with mods: the start waits, and the lobby shows why.
 - A **replay** carries the profile and the mods' files the same way, so it
   plays on a machine that doesn't have your mod, with your code as it was
   when the game was played.
@@ -361,12 +361,12 @@ out the same on every machine. WormForge splits your code in two:
 The Moon Grenade does both: `on_explode` cuts the land and
 records `last_burst`; the HUD only reads it.
 
-- **wa.random:** `wa.random(n)` gives a whole number from 1 to n from WA's
-  random function, the same on every machine and in replays. Simulation only. Lua's
-  `math.random` is gone; for looks, in drawing, `wa.draw.random()` gives a
+- **wa.random:** `wa.random(n)` returns an integer from 1 to n from WA's
+  random function, the same on every machine and in replays. Use it only in the simulation. Lua's
+  `math.random` is gone; for looks, in drawing, `wa.draw.random()` returns a
   number from 0 to 1.
 - **Angles:** where the result reaches the game, use `wa.math.sin`,
-  `wa.math.cos` and `wa.math.atan`. Lua's `math.sin` and its kin can differ
+  `wa.math.cos` and `wa.math.atan`. Lua's `math.sin`, `math.cos` and similar functions can differ
   in the last digit between machines; in drawing they are fine.
 - **Order:** `pairs()` walks a table in a different order on each machine.
   Where the order matters to the game, walk a list with `ipairs`, or a

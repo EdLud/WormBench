@@ -58,7 +58,7 @@ local x, y, deeper = stuck_stamp.place(ev.x, ev.y, frame, bar)
 - `bar` describes the stamp as a bar along its frame's axis:
   `{ half_length = ..., half_width = ... }`, in pixels from its centre.
 - It returns the centre to stamp at and how many pixels deeper that is, or
-  `nil` and the worm it cannot clear.
+  `nil` and the worm it can't clear.
 
 It assumes the sheet's frame `f` points `f * 11.25` degrees clockwise from
 up, as PX's 32-frame spear and girder sheets do. Both were measured from their

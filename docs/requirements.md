@@ -5,11 +5,11 @@
 - **Worms Armageddon 3.8.1** with WormKit modules enabled: `wkLua.dll` sits
   next to `WA.exe`.
 - **Windows 7 or later**, Windows 10 or later recommended. On macOS or
-  Linux, Wine or CrossOver works. Windows Vista and XP are not supported.
+  Linux, Wine or CrossOver works. Windows Vista and XP aren't supported.
 - **The Direct3D 9 (shader) renderer**, picked in WA's graphics options.
   WormForge draws its own sprites, animated GIFs, effects, tooltips and fog of
   war through it. With any other renderer the match still runs, but those
-  are not drawn.
+  aren't drawn.
 - **The same WormForge version for every player** in an online match.
   
 ## WormKit modules
@@ -25,7 +25,7 @@ folder before playing online with WormForge.**
 ### wkFOW: use WormForge's fog of war instead
 
 wkFOW draws in the same places WormForge does, and WormForge then turns its
-drawing off (`wkLua.log` says "bytes differ"). WormForge has fog of war
+drawing off (`wkLua.log` reports "bytes differ"). WormForge has fog of war
 built in: select the **Fog of war** add-on in a profile.
 
 ### wkZoom: not supported but WormForge has its own Zoom

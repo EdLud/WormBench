@@ -3,7 +3,7 @@
 A component can fire another weapon's missiles with `wa.weapons.launch`
 without any worm using that weapon. Project X's oil drums do: the nuke drum
 bursts into the Nuke Rocket's rockets. A missile needs its weapon's record,
-and a weapon has a record only when it has a slot. `launches` gives the
+and a weapon has a record only when it has a slot. `launches` assigns the
 weapon a slot without putting it on the panel.
 
 ## Declaring it
@@ -68,7 +68,7 @@ The profile can't be built when a component launches:
 
 ## `launches` or `requires`
 
-`requires` says another component must be selected: the profile is refused
+`requires` declares that another component must be selected: the profile is refused
 until the player places or selects it. Use it when your component needs that
 component to run.
 

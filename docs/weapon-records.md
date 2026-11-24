@@ -1,11 +1,11 @@
 # Weapon records
 
 A **record** is WA's built-in description of a weapon: how it fires, how its
-projectiles behave, and which sounds and sprites it uses. WormForge gives
-these settings names in Lua tables. The names come from reverse engineering,
+projectiles behave, and which sounds and sprites it uses. WormForge names
+these settings in Lua tables. The names come from reverse engineering,
 and some native parameters are still unknown.
 
-A Project X `.wep` file holds this data. Importing one gives the weapon its
+A Project X `.wep` file holds this data. Importing one sets the weapon's
 firing behaviour and a default name; art and Lua behaviour come from the
 mod's usual declarations and callbacks.
 
@@ -43,13 +43,13 @@ the same **family**:
 | `strike` | Air Strike, Napalm Strike | `strike`, plus `missile` and `clusters` for their munitions |
 | `mine` | Mine | `mine` |
 | `special` | Fire Punch, Drill, Jet Pack | Settings specific to that native behaviour |
-| `arrow`, `spray` | Longbow, Flame Thrower | Inherited behaviour; dedicated named parameter groups are not exposed yet |
+| `arrow`, `spray` | Longbow, Flame Thrower | Inherited behaviour; dedicated named parameter groups aren't exposed yet |
 
 Missiles also have an `action`: `"none"`, `"homing"`, `"bounce"`, `"roam"`
 or `"dig"`. Use the corresponding settings below. Primary projectiles and
 cluster bits have independent actions.
 
-Setting `action = "bounce"` alone does not make a projectile behave like a
+Setting `action = "bounce"` alone doesn't make a projectile behave like a
 Grenade: collision flags, fuse/countdown settings and bounce parameters also
 contribute. Changing the action can change how WA interprets inherited
 parameters. For a grenade-like weapon, start with `copy_from = "stock.grenade"`
@@ -71,12 +71,12 @@ Enum fields accept the names shown below or native integer values.
 
 | Field | Meaning |
 |---|---|
-| `fires.launch_power_pct` | Missile launch power. `50` is 50%; values above 100 are allowed. `"charged"` or `0` enables charging on launched/thrown weapons. Placement does not become chargeable. |
+| `fires.launch_power_pct` | Missile launch power. `50` is 50%; values above 100 are allowed. `"charged"` or `0` enables charging on launched/thrown weapons. Placement doesn't become chargeable. |
 | `fires.type`, `fires.method` | Native firing-family and method selectors. Normally inherit them from the base. |
 | `fires.subtype` | Family-dependent native parameter. Selects a special weapon's particular behaviour; no gameplay use has been identified for strikes. Normally inherit it from the base. |
-| `fires.creates_projectile` | Native firing flag. Its detailed effect is not fully documented; inherit it. |
+| `fires.creates_projectile` | Native firing flag. Its detailed effect isn't fully documented; inherit it. |
 | `handling.available_in_caves` | Whether the weapon can be used on cavern maps; also controls cave-round ammo/crate exclusion. |
-| `handling.remember_selection` | Whether WA remembers and may re-equip this weapon between turns. Does not enable a crosshair. Weapon data's and the profile's `remembered` sets it. |
+| `handling.remember_selection` | Whether WA remembers and may re-equip this weapon between turns. Doesn't enable a crosshair. Weapon data's and the profile's `remembered` sets it. |
 | `handling.shots` | Number of uses in a firing sequence, such as the Shotgun's two shots. |
 | `handling.ends_turn` | Whether using the weapon ends weapon use for the turn. |
 | `handling.retreat` | Native retreat-time setting in milliseconds; preserve inherited special values unless tested. |
@@ -86,13 +86,13 @@ Enum fields accept the names shown below or native integer values.
 `utility.effect` selects the native effect of a turn utility: `"low_gravity"`,
 `"fast_walk"`, `"laser_sight"`, `"invisibility"`, `"damage_x2"`, `"crate_spy"`,
 `"double_turn_time"` or `"crate_shower"`. It requires a turn-utility base,
-such as `stock.fast_walk`; it does not apply to Jet Pack or other specials.
+such as `stock.fast_walk`; it doesn't apply to Jet Pack or other specials.
 Using the weapon toggles its effect for the team; ammo and turn handling
 remain the weapon's own settings.
 
 Use `utility = { effect = "scripted" }` when Lua supplies the effect, as
 Wind Changer and Gravity Control do. The native use still completes, without
-activating a stock utility. This field does not configure Auto-Use.
+activating a stock utility. This field doesn't configure Auto-Use.
 
 ### Missiles and explosions
 
@@ -110,17 +110,17 @@ Fields below belong under `missile` unless another table is named.
 | `explode_on_space` | Enables the native Space-triggered action. |
 | `burst` | Payload: `"nothing"`, `"clusters"` or `"fire"`. |
 | `fire.spread_delay_ms` | With `burst = "fire"`, delay before a flame produces the next spreading generation. Native fire checks this in 20 ms steps. |
-| `fire.burn_time_ms` | With `burst = "fire"`, nominal settled burn time for ordinary fire. Falling pauses natural decay, and native randomness can shorten the burn. Persistent native fire modes consume this reserve on hits instead. This is not an exact lifetime from creation; `0` does not mean unlimited. |
-| `fire.spread_generations` | With `burst = "fire"`, nonnegative whole number of successive spreading generations. `0` retains only the initial flames. Each generation may branch into several flames; this is not a flame count. |
+| `fire.burn_time_ms` | With `burst = "fire"`, nominal settled burn time for ordinary fire. Falling pauses natural decay, and native randomness can shorten the burn. Persistent native fire modes consume this reserve on hits instead. This isn't an exact lifetime from creation; `0` doesn't mean unlimited. |
+| `fire.spread_generations` | With `burst = "fire"`, nonnegative whole number of successive spreading generations. `0` retains only the initial flames. Each generation may branch into several flames; this isn't a flame count. |
 | `fire.decay_mode` | With `burst = "fire"`, `"resting"` consumes the burn reserve while settled; `"on_hit"` consumes it through hits instead. Water and other native extinguishing rules still apply. |
 | `explosion.power` | Explosion damage and radius together, as a WA weapon's power. |
 | `explosion.push_pct` | Knockback percentage. Zero removes push while retaining explosion power. |
 | `explosion.bias`, `explosion.variation` | Native explosion bias and damage variation. |
 | `sprite`, `animation` | Flight sprite and native animation selector. |
-| `trail = { sprite, power, speed }` | Visual trail settings. Trail speed does not change projectile speed. |
+| `trail = { sprite, power, speed }` | Visual trail settings. Trail speed doesn't change projectile speed. |
 | `trail.bubbles_per_second` | Underwater bubble emission rate, in steps of `0.25`. `0` disables emission. Independent of the dry trail settings; homing has its own value under `homing.trail`. |
 | `flight_sound` | Native flight sound ID; zero disables it. |
-| `launch_sound` | Positional sound played once when the primary projectile is created; `0` disables it. Cluster children do not replay it. |
+| `launch_sound` | Positional sound played once when the primary projectile is created; `0` disables it. Cluster children don't replay it. |
 | `explosion_sound = { enabled, sound, before }` | Optional native pre-explosion sound; `before` is milliseconds. |
 
 ### Missile actions
@@ -183,7 +183,7 @@ partial selections, use the following instead of the `worms` shortcut:
 | `worms_frozen_moving` | Moving frozen worms. |
 
 These are WA's existing groups; a worm can change groups during one jump.
-Do not combine `worms` with its four constituent ordinary groups in one table.
+Don't combine `worms` with its four constituent ordinary groups in one table.
 Unmapped imported bits can be preserved with `extra_bits`; shipped PX masks
 need no such values.
 
@@ -207,7 +207,7 @@ independent `clusters.bit` equivalents.
 | `clusters.power_variation_pct` | Random reduction in cluster launch strength, up to this percentage. |
 
 The two power fields apply to cluster payloads, including the alternate
-native cluster mode. They do not apply to fire payloads.
+native cluster mode. They don't apply to fire payloads.
 For fire payloads, use `missile.fire` for spreading generations, delay, burn
 reserve and decay mode. The legacy `clusters.count` and `clusters.angle`
 spellings remain writable for compatibility; reading a fire record returns
@@ -223,11 +223,11 @@ the fire names. Inherit untested native decay-mode numbers from the base.
 | `gun` | `damage`: damage per projectile. `hits`: named raycast targets. `impact_effect`: native visual effect selector. `explosion = { bias, push_pct, variation }`: impact parameters. |
 | `mine` | `proximity`: detection radius. `arm`: arming delay in milliseconds. `detects`: named proximity targets. `fuse`: triggered fuse in milliseconds. `explosion = { bias, push_pct, power }`: explosion parameters. |
 | `strike` | `count`: dropped munitions. `spacing`: native drop-spacing parameter. `plane`: native plane sprite. `munition`: `"mines"` or `"missiles"`. |
-| `strike` | `munition_speed`: initial horizontal speed of dropped munitions along the plane's direction, in pixels/frame, in steps of `0.01`. Does not set the aircraft's speed. `plane_sound`: native aircraft sound ID; `0` disables it. |
+| `strike` | `munition_speed`: initial horizontal speed of dropped munitions along the plane's direction, in pixels/frame, in steps of `0.01`. Doesn't set the aircraft's speed. `plane_sound`: native aircraft sound ID; `0` disables it. |
 | `fire_punch` | `damage`: hit damage. `knockback`: victim's hit strength in pixels/frame, in steps of `0.1`, before native hit modifiers. Applies only to Fire Punch behaviour. |
 | `drill` | `duration_ms`: Pneumatic Drill duration. |
 | `jet_pack` | `fuel`: native Jet Pack fuel setting, `0` to `255`; `0` means unlimited. |
-| `parachute` | `wind_pct`: wind response percentage; `100` is normal and `0` ignores wind. This does not change arrow-key steering or initial momentum. |
+| `parachute` | `wind_pct`: wind response percentage; `100` is normal and `0` ignores wind. This doesn't change arrow-key steering or initial momentum. |
 
 ## Sprites and other declarations
 
@@ -261,7 +261,7 @@ local family = data.fires.as  -- read-only family name
 
 Use a placed weapon's ID to read its current match record. This includes
 `stock.<name>` when that stock weapon is placed; otherwise a stock ID reads
-the unchanged stock record. Read it once the weapons of the match are set
+the unchanged stock record. Read it once the match weapons are set
 up. The table is a copy; editing it changes no weapon. It holds only the
 settings that fit the record's family, action and payload.
 
@@ -277,7 +277,7 @@ wa.weapons.launch{
 
 `launch` accepts `missile` and `clusters` overrides for that shot only. The
 source must use a compatible missile firing path. Supplied velocity is in
-pixels/frame; `fires.launch_power_pct` does not scale it again.
+pixels/frame; `fires.launch_power_pct` doesn't scale it again.
 
 Scripted children inherit the source weapon's missile settings, independently
 of `clusters.bit`. Override child-specific fuse, Space detonation and payload

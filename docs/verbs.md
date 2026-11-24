@@ -121,7 +121,7 @@ Also: `wep`, `copy_from`, `fires`, `handling`, `missile`, `clusters`, `mine`, `g
 
 `missile = { trail = { sprite = "sprites/my_trail.png" } }`
 
-A weapon's own native trail image, loaded with the claim and scoped to that weapon; it does not replace the stock trail sprite for anything else. An installation declaration, not something [`wa.weapons.launch`](#waweaponslaunch) loads mid-match.
+A weapon's own native trail image, loaded with the claim and scoped to that weapon; it doesn't replace the stock trail sprite for anything else. An installation declaration, not something [`wa.weapons.launch`](#waweaponslaunch) loads mid-match.
 
 Also: `trail.sprite`
 
@@ -135,7 +135,7 @@ Also: `fire.x`, `fire.y`, `fire.vx`, `fire.vy`, `fire.weapon`, `fire.worm`, `fir
 
 ## Weapon data
 
-What a weapon declares in its defaults and a profile's `weapon_settings` override, field by field; the weapon's install reads it as ctx.data. WA's own weapons answer as WA does where a field is left out.
+What a weapon declares in its defaults and a profile's `weapon_settings` override, field by field; the weapon's install reads it as ctx.data. Stock weapons answer as WA does where a field is left out.
 
 ### `data.ammo`
 
@@ -235,7 +235,7 @@ Also: `uses_per_turn`
 
 `extra_pickups = "keep" | "discard"`
 
-An instant utility with Auto-Use: what becomes of units past the turn's uses, banked for later turns or dropped. Units already held and infinite ammo are never dropped. WA's own four default to `discard`, as without Conserve Instant Utilities, which WormForge fixes. Since 0.9.82.
+An instant utility with Auto-Use: what becomes of units past the turn's uses, banked for later turns or dropped. Units already held and infinite ammo are never dropped. The four stock ones default to `discard`, as without Conserve Instant Utilities, which WormForge fixes. Since 0.9.82.
 
 Also: `extra_pickups`
 
@@ -251,7 +251,7 @@ Also: `retreat_collect`
 
 `placement_collect = "activate" | "keep"`
 
-One of WA's four instant utilities with Auto-Use: a pickup during manual placement is used at once, through WA's own Expedite Instant Utilities step (a Crate Spy shows the crates to the worms still to be placed), or kept for the team's first turn. WA uses no instant utility before every worm is placed. Defaults to `keep`, as WA's Expedite off; a `.wsc` with Expedite on imports as `activate`. Since 0.9.82.
+One of WA's four instant utilities with Auto-Use: a pickup during manual placement is used at once, through WA's Expedite Instant Utilities step (a Crate Spy shows the crates to the worms still to be placed), or kept for the team's first turn. WA uses no instant utility before every worm is placed. Defaults to `keep`, as WA's Expedite off; a `.wsc` with Expedite on imports as `activate`. Since 0.9.82.
 
 Also: `placement_collect`
 
@@ -319,7 +319,7 @@ Also: `ends_invisibility`
 
 `remembered = true | false`
 
-Whether WA remembers the weapon for the worm that selected it: after a use the worm gets it back while it has ammo, and its next turn starts with it. WA's own pick of a weapon (a worm with nothing to keep) only chooses remembered weapons. Left out, the weapon's record: WA remembers 18 of its own (the Bazooka, Grenade, Uzi, Ninja Rope and others, not the Parachute, Jet Pack or Bungee), and every one with RubberWorm's Remember Weapons. A profile's value wins over both. The loader shows it as **Remember Weapon**.
+Whether WA remembers the weapon for the worm that selected it: after a use the worm gets it back while it has ammo, and its next turn starts with it. WA's automatic pick of a weapon (a worm with nothing to keep) only chooses remembered weapons. Left out, the weapon's record: WA remembers 18 stock weapons (the Bazooka, Grenade, Uzi, Ninja Rope and others, not the Parachute, Jet Pack or Bungee), and every one with RubberWorm's Remember Weapons. A profile's value wins over both. The loader shows it as **Remember Weapon**.
 
 Also: `remembered`
 
@@ -387,7 +387,7 @@ Units: turns -1..127
 
 `worm:poison(amount)`
 
-A native gas exposure: WA checks immunity, adds the dose and takes its nonlethal health at turn boundaries. Returns whether the dose grew. Does not hurt the worm at once or change control. Simulation callbacks only.
+A native gas exposure: WA checks immunity, adds the dose and takes its nonlethal health at turn boundaries. Returns whether the dose grew. Doesn't hurt the worm at once or change control. Simulation callbacks only.
 
 Units: amount 1..1000
 
@@ -455,7 +455,7 @@ Units: px/frame
 
 `worm:jump("forward" | "back" | "up" | "backflip")`
 
-WA's own jump take-off from wherever the worm is; none repeats its last jump.
+WA's normal jump take-off from wherever the worm is; with no kind, it repeats the worm's last jump.
 
 ### `worm:carry`
 
@@ -475,7 +475,7 @@ Lets a carried worm fall. One that has started dying is only let go.
 
 `worm:use(weapon)`
 
-WA's own action of a weapon, performed by the worm now without firing it: no ammo or delay, nothing to its team or the turn. A placed weapon, else `stock.<name>`; its record this round decides. So far the Fire Punch family and the Jet Pack family (an error for others). A jet pack puts the worm on WA's own jet pack with that record's fuel: unsteered it sinks slowly and lands unhurt, and stays on it until its fuel runs out, it is hit, or `worm:release` takes it off. False for a dying worm, one already using one or on a jet pack, or the worm whose turn it is. Simulation callbacks only. Since 0.9.8; the Jet Pack since 0.9.83.
+A weapon's native WA action, performed by the worm now without firing it: no ammo or delay, nothing to its team or the turn. A placed weapon, else `stock.<name>`; its record this round decides. So far the Fire Punch family and the Jet Pack family (an error for others). A jet pack puts the worm on the stock jet pack with that record's fuel: unsteered it sinks slowly and lands unhurt, and stays on it until its fuel runs out, it is hit, or `worm:release` takes it off. False for a dying worm, one already using one or on a jet pack, or the worm whose turn it is. Simulation callbacks only. Since 0.9.8; the Jet Pack since 0.9.83.
 
 ### `worm:warp`
 
@@ -521,7 +521,7 @@ Enters a WA state. Debugging only, opt-in per pack (`debug_worm_state`).
 
 `worm:input{ fire, aim, fuse, bounce, click, key }`
 
-Sends WA's own input messages for a worm, as its player's keys would: fire press or release, aim (degrees from level, -90 down to 90 up), fuse 1..5, bounce min or max, a click, or one key (left, right, up, down, face_left, face_right, jump, backflip, special, tab). Movement keys request one frame: send them each frame to hold. A worm without the turn walks too (Project X's zombies), and its keys never steer the team's released weapon. Simulation callbacks only. Up to 0.9.7 an offline diagnostic, opt-in per bundle (`debug_input`); since 0.9.8 any bundle, online too.
+Sends WA's native input messages for a worm, as its player's keys would: fire press or release, aim (degrees from level, -90 down to 90 up), fuse 1..5, bounce min or max, a click, or one key (left, right, up, down, face_left, face_right, jump, backflip, special, tab). Movement keys request one frame: send them each frame to hold. A worm without the turn walks too (Project X's zombies), and its keys never steer the team's released weapon. Simulation callbacks only. Any bundle, online too, since 0.9.8.
 
 ## Lua actors
 
@@ -561,7 +561,7 @@ Also: `body.hits`
 
 `a.hit_by = "all" | { arrows = true, melee = true }`
 
-Incoming categories: worms, missiles, arrows, mines, actors, bullets, melee, fire, `dragon_ball`, blasts. `"all"` allows every category; {} excludes them all. Read/write independently of hits; writes require simulation callbacks and leave the body active for its own physics. Filters narrow stock rules: Prod still cannot push objects and melee tests the target position. Bodies do not catch ninja ropes. Unknown keys are refused.
+Incoming categories: worms, missiles, arrows, mines, actors, bullets, melee, fire, `dragon_ball`, blasts. `"all"` allows every category; {} excludes them all. Read/write independently of hits; writes require simulation callbacks and leave the body active for its own physics. Filters narrow stock rules: Prod still can't push objects and melee tests the target position. Bodies don't catch ninja ropes. Unknown keys are refused.
 
 Also: `body.hit_by`, `body.shape`
 
@@ -569,7 +569,7 @@ Also: `body.hit_by`, `body.shape`
 
 `body = { pushed_by = { mines = 0.2 } }`
 
-How hard what runs into the actor pushes it. When a body WA moves runs into the actor, WA trades their speeds; the actor keeps this share (0 to 1) of the speed it was given, and the mover keeps the speed WA left it, so it slows against the actor instead of bouncing off. Keys: worms, missiles, arrows, mines (every WA mine, the level's as much as a laid one), actors; one left out keeps WA's whole push. Blasts, guns and other hits are not affected: they still reach the actor through `on.hit`. Set at spawn. A sprite-shaped actor with on.contact gets no push from WA to scale. The Electromagnet sets mines and missiles to 0, so nothing its field drags can knock it away.
+How hard what runs into the actor pushes it. When a body WA moves runs into the actor, WA trades their speeds; the actor keeps this share (0 to 1) of the speed it was given, and the mover keeps the speed WA left it, so it slows against the actor instead of bouncing off. Keys: worms, missiles, arrows, mines (every WA mine, the level's as much as a laid one), actors; one left out keeps WA's whole push. Blasts, guns and other hits aren't affected: they still reach the actor through `on.hit`. Set at spawn. A sprite-shaped actor with on.contact gets no push from WA to scale. The Electromagnet sets mines and missiles to 0, so nothing its field drags can knock it away.
 
 Units: share 0..1
 
@@ -601,7 +601,7 @@ Applies WA's gravity for one frame.
 
 `a:move{ terrain, worms }`
 
-Adds its speed to its position once and reports land under its feet (terrain, land, left). It is not WA's sweep: it does not stop at land, bounce or meet worms, and produces no bumps.
+Adds its speed to its position once and reports land under its feet (terrain, land, left). It isn't WA's sweep: it doesn't stop at land, bounce or meet worms, and produces no bumps.
 
 ### `a:warp`
 
@@ -623,7 +623,7 @@ Units: px
 
 `on = { contact = function(a, ev) end }`
 
-Something moving ran into this actor (WA's own movement): ev.other, ev.x, ev.y, ev.vx, ev.vy (its speed going in), ev.nx, ev.ny (the side), ev.frame. After physics, once per pair a frame; Lua decides the push.
+Something moving ran into this actor (WA's native movement): ev.other, ev.x, ev.y, ev.vx, ev.vy (its speed going in), ev.nx, ev.ny (the side), ev.frame. After physics, once per pair a frame; Lua decides the push.
 
 Units: px, px/frame
 
@@ -631,7 +631,7 @@ Units: px, px/frame
 
 `on = { bump = function(a, ev) end }`
 
-This actor's own movement ran into something, stopped by WA's sweep: ev.other (`"land"` or the worm/object/actor), ev.nx, ev.ny (the side, pointing away), ev.`surface_nx`, ev.`surface_ny` (on a land floor only: its slope, from WA's own gradient), ev.vx, ev.vy (speed going in), ev.x, ev.y, ev.first (not touching it the frame before), ev.frame. After physics, in lifetime order; WA's stop or bounce is already in a.vx, a.vy, write them to steer. Needs an actor that collides with something.
+This actor's own movement ran into something, stopped by WA's sweep: ev.other (`"land"` or the worm/object/actor), ev.nx, ev.ny (the side, pointing away), ev.`surface_nx`, ev.`surface_ny` (on a land floor only: its slope, from WA's gradient), ev.vx, ev.vy (speed going in), ev.x, ev.y, ev.first (not touching it the frame before), ev.frame. After physics, in lifetime order; WA's stop or bounce is already in a.vx, a.vy, write them to steer. Needs an actor that collides with something.
 
 Units: px, px/frame
 
@@ -759,13 +759,13 @@ Sets its blend mode.
 
 ## Stock objects, crates and fire
 
-WA's own missiles, mines, crates, oil drums, graves and arrows, and WA's fires.
+WA's native missiles, mines, crates, oil drums, graves and arrows, and WA's fires.
 
 ### `wa.missiles.all`
 
 `wa.missiles.all(), wa.mines.all(), wa.crates.all(), wa.oil.all(), wa.graves.all(), wa.arrows.all()`, each also `{ near = { x, y, r } }`
 
-WA's own objects of that kind; with `near`, only those within `r` pixels of (x, y), in the same order. The distance is exact in WA's fixed point. `near` comes after 0.9.61.
+WA's native objects of that kind; with `near`, only those within `r` pixels of (x, y), in the same order. The distance is exact in WA's fixed point. `near` comes after 0.9.61.
 
 Also: `wa.mines.all`, `wa.crates.all`, `wa.oil.all`, `wa.graves.all`, `wa.arrows.all`
 
@@ -773,7 +773,7 @@ Also: `wa.mines.all`, `wa.crates.all`, `wa.oil.all`, `wa.graves.all`, `wa.arrows
 
 `wa.crates.spawn{ x, y, kind, health, drop }`
 
-Builds one of WA's crates: weapon, utility or health, dropped by chute, teleport or none.
+Builds one of WA's crates: weapon, utility or health, dropped by chute or teleport, or with no drop (`none`).
 
 Units: position px
 
@@ -819,7 +819,7 @@ Also: `damage_scale`, `knock_scale`
 
 `wa.fire.repel{ x, y, radius, power }`
 
-Pushes the live flames in a circle away, as WA's own flame response to an explosion pushes them (its falloff with distance). Every field is required: radius above 0 and at most 8192, power a whole native strength 0..1000 (0 does nothing). No blast, fire, sound or hole, and nothing else is hurt or moved. Returns how many flames it pushed. Simulation callbacks only.
+Pushes the live flames in a circle away, as WA's native flame response to an explosion pushes them (its falloff with distance). Every field is required: radius above 0 and at most 8192, power a whole native strength 0..1000 (0 does nothing). No blast, fire, sound or hole, and nothing else is hurt or moved. Returns how many flames it pushed. Simulation callbacks only.
 
 Units: position, radius px · power native integer
 
@@ -1155,7 +1155,7 @@ Also: `event.victim`, `event.attacker`, `event.attacker_team`, `event.weapon`, `
 
 `wa.on.hurt(fn)`
 
-On every damage message that reaches the worm. hit.kind is `"blast"`, the hit's name (see [Hit kinds](#hit-kinds); `"hit"` was split into them in 0.9.83), `"nonlethal"` or `"poison"`. It can change the amount or eat the hit; hit.`source_weapon` is the id of an arrow's weapon. Read hit.phase (`"pre"` before WA's handler, `"post"` after it, with hit.`lost`, the health it took). A blast comes only to the worms it reaches, with hit.`power` (the explosion's power, its amount), hit.damage (what the falloff gives this worm), hit.x, hit.y (the centre) and hit.vx, hit.vy (the push WA gives it). Changing a blast's amount changes its power for this worm alone; setting its damage in `pre` sets what this worm takes from it, the push left as WA's. hit.`expected` (blasts, hits and fire) is what WA will take off the worm's health, worked out before WA's handler by WA's own rules: 0 when the scheme's Phased Worms (Allied or Enemy) is at "worms, weapons and damage", the worm is frozen, dying or drowning, or, for a hit, was hit already this frame; half a blast plus 1 under water; Double Damage; no more than its health. It is for the message as WA sent it, and `lost` is what it took. Poison comes to every worm at each turn's end, amount 0 for a worm not poisoned.
+On every damage message that reaches the worm. hit.kind is `"blast"`, the hit's name (see [Hit kinds](#hit-kinds)), `"nonlethal"` or `"poison"`. It can change the amount or eat the hit; hit.`source_weapon` is the id of an arrow's weapon. Read hit.phase (`"pre"` before WA's handler, `"post"` after it, with hit.`lost`, the health it took). A blast comes only to the worms it reaches, with hit.`power` (the explosion's power, its amount), hit.damage (what the falloff gives this worm), hit.x, hit.y (the centre) and hit.vx, hit.vy (the push WA gives it). Changing a blast's amount changes its power for this worm alone; setting its damage in `pre` sets what this worm takes from it, the push left as WA's. hit.`expected` (blasts, hits and fire) is what WA will take off the worm's health, worked out before WA's handler by WA's rules: 0 when the scheme's Phased Worms (Allied or Enemy) is at "worms, weapons and damage", the worm is frozen, dying or drowning, or, for a hit, was hit already this frame; half a blast plus 1 under water; Double Damage; no more than its health. It is for the message as WA sent it, and `lost` is what it took. Poison comes to every worm at each turn's end, amount 0 for a worm not poisoned.
 
 Units: px, px/frame
 
@@ -1277,7 +1277,7 @@ A random number for looks only, never for the simulation.
 
 `wa.draw.fraction()`
 
-How far this rendered frame is past the last simulation frame, 0 to 1: WA's own interpolation, the one worms and actors are drawn with. Draw a body you track yourself at `x + (x - previous_x) * wa.draw.fraction()` so it moves as smoothly as an actor. Inside `wa.on.draw` only; it differs on every machine, so never feed it to the simulation.
+How far this rendered frame is past the last simulation frame, 0 to 1: WA's interpolation, the one worms and actors are drawn with. Draw a body you track yourself at `x + (x - previous_x) * wa.draw.fraction()` so it moves as smoothly as an actor. Inside `wa.on.draw` only; it differs on every machine, so never feed it to the simulation.
 
 ### `wa.depth`
 
@@ -1295,7 +1295,7 @@ Adds a line to the HUD.
 
 `wa.hud.fps_counter()`
 
-Turns on the FPS counter for the match: this machine's frame rate over the last second, at the top right. Every build; Lua cannot read the rate back. Since 0.9.8.
+Turns on the FPS counter for the match: this machine's frame rate over the last second, at the top right. Every build; Lua can't read the rate back. Since 0.9.8.
 
 ### `wa.hud.message_top`
 
@@ -1319,7 +1319,7 @@ Also: `hud.tray`
 
 `wa.hud.window{ text | lines, x, y, align, font, color, border, max_width, to, alliance, over_panel }`
 
-A text window in WA's own fonts and box style, sized to its text, open until closed or the match ends; returns a handle. text takes \\n line breaks; lines = { `"a"`, { `"b"`, color = `"yellow"` } } colours lines. font: small, standard (the round timer's) or medium. color and border: white, grey, red, blue, green, yellow, purple, cyan; border `"none"`. `max_width` wraps at spaces. align names the box's and the screen's point x, y offset it from (`top_left` ... `bottom_right`, center). to / alliance as [`message_top`](#wahudmessage_top), taken when given. Fades out while the weapon panel is open unless `over_panel` = true. Drawn over WA's HUD on the GPU layer (`Direct3D` 9 shader). At most 32 open.
+A text window in WA's fonts and box style, sized to its text, open until closed or the match ends; returns a handle. text takes \\n line breaks; lines = { `"a"`, { `"b"`, color = `"yellow"` } } colours lines. font: small, standard (the round timer's) or medium. color and border: white, grey, red, blue, green, yellow, purple, cyan; border `"none"`. `max_width` wraps at spaces. align names the box's and the screen's point x, y offset it from (`top_left` ... `bottom_right`, center). to / alliance as [`message_top`](#wahudmessage_top), taken when given. Fades out while the weapon panel is open unless `over_panel` = true. Drawn over WA's HUD on the GPU layer (`Direct3D` 9 shader). At most 32 open.
 
 Units: px
 
@@ -1353,7 +1353,7 @@ Resolves a pack sprite name once, for reuse in draw calls.
 
 `wa.assets.load{ sprites, sounds, gpu_prefix, wa_sprites, worm_glow }`
 
-Loads a component's own sprites and sounds on no weapon, from its install: how an add-on draws and plays its own art. wa_sprites (since 0.9.8) names WA's own sprites, by Gfx.dir name or the group "worm" (a worm's poses without a weapon), copied in full colour with the match, so what draws them in colour (`worm.tint`) has them from the start. `worm_glow` (since 0.9.8: true or { radius = 1..16, pad = 0..40, gain = 0.1..8 }) sets the shape of the match's worm glows (the silhouette blurred twice by radius, on cells pad larger each side, brightened by gain; left out: 3, twice the radius and one, 1.6) and makes glows with the match for the placed weapons' own worm poses, so a glowing worm aiming one keeps its glow, and for the sheets the placed weapons draw in the worm's place (params.`worm_art`), for [`a:gfx`](#agfx)'s glow_of.
+Loads a component's own sprites and sounds on no weapon, from its install: how an add-on draws and plays its own art. wa_sprites (since 0.9.8) names WA's sprites, by Gfx.dir name or the group "worm" (a worm's poses without a weapon), copied in full colour with the match, so what draws them in colour (`worm.tint`) has them from the start. `worm_glow` (since 0.9.8: true or { radius = 1..16, pad = 0..40, gain = 0.1..8 }) sets the shape of the match's worm glows (the silhouette blurred twice by radius, on cells pad larger each side, brightened by gain; left out: 3, twice the radius and one, 1.6) and makes glows with the match for the placed weapons' own worm poses, so a glowing worm aiming one keeps its glow, and for the sheets the placed weapons draw in the worm's place (params.`worm_art`), for [`a:gfx`](#agfx)'s glow_of.
 
 ### `wa.sound.play`
 
@@ -1369,7 +1369,7 @@ sounds = { "soundbank/Kamikaze/Collect" },
 wa.sound.play(worm, "soundbank/Kamikaze/Collect")
 ```
 
-The bank is a folder of `DATA\User\Speech` (WA's own banks, `Africaan` to `Wideboy`) or `User\Speech` (the player's own); the line is a file of it without `.wav` (`YesSir`, `Collect`, `Hmm`), case ignored. Only the lines a component declares are loaded. A bank a machine doesn't have (a custom bank, or one the digital releases leave out, such as `Jock`) is silent there and noted in `wkluaerror.txt`; the component still loads. Since 0.9.83 (an older DLL refuses the entry).
+The bank is a folder of `DATA\User\Speech` (the stock banks, `Africaan` to `Wideboy`) or `User\Speech` (the player's own); the line is a file of it without `.wav` (`YesSir`, `Collect`, `Hmm`), case ignored. Only the lines a component declares are loaded. A bank a machine doesn't have (a custom bank, or one the digital releases leave out, such as `Jock`) is silent there and noted in `wkluaerror.txt`; the component still loads. Since 0.9.83.
 
 ### `wa.music.set_pitch`
 
@@ -1383,7 +1383,7 @@ Presentation only, from any callback: nothing about it can be read back, so a si
 
 `wa.camera.follow("all" | "owned" [, { public = false }])`, `wa.camera.follow()`
 
-What WA's automatic camera may follow on each machine. `"owned"`: the other side's worms, team cursor, shots and Lua actors never move this player's camera, so it gives none of them away (Project X's fog rule). Crates, drums, fire and explosions still move it; `public = false` drops those too. Online a player's side is the teams their machine plays; offline and in replays it is the side whose turn it is; with fog on, what the fog shows them. `"all"` is WA's own, and every match starts with it. Returns the rule now in force and whether objects of no side still move the camera. Presentation only, from any callback. The fog add-on's `camera_follow` option sets it.
+What WA's automatic camera may follow on each machine. `"owned"`: the other side's worms, team cursor, shots and Lua actors never move this player's camera, so it gives none of them away (Project X's fog rule). Crates, drums, fire and explosions still move it; `public = false` drops those too. Online a player's side is the teams their machine plays; offline and in replays it is the side whose turn it is; with fog on, what the fog shows them. `"all"` is WA's normal camera, and every match starts with it. Returns the rule now in force and whether objects of no side still move the camera. Presentation only, from any callback. The fog add-on's `camera_follow` option sets it.
 
 Also: `camera.follow`
 
@@ -1409,7 +1409,7 @@ Also: `worm.camera`
 
 `wa.view.ripple{ x, y, amplitude = 6, wavelength = 48, speed = 200, duration_ms = 600, falloff = wavelength }`
 
-Waves spreading from a world point through this machine's picture of the world: the land, water, worms, objects, actors, worm names and the crosshair ripple; the screen HUD (the timer, the wind bar, the weapon panel, chat, the Esc menu) does not. The leading wave travels `speed` pixels per second, the waves behind it halve every `falloff` pixels, and all of them fade out over `duration_ms`. `amplitude` is the largest push in pixels (0..64), `wavelength` the waves' length (8..4096). A falloff shorter than the wavelength leaves one ring, a shockwave; a longer one, a train of rings. Returns a handle: `r:stop()` ends it early. Up to 32 at once; another ends the oldest.
+Waves spreading from a world point through this machine's picture of the world: the land, water, worms, objects, actors, worm names and the crosshair ripple; the screen HUD (the timer, the wind bar, the weapon panel, chat, the Esc menu) doesn't. The leading wave travels `speed` pixels per second, the waves behind it halve every `falloff` pixels, and all of them fade out over `duration_ms`. `amplitude` is the largest push in pixels (0..64), `wavelength` the waves' length (8..4096). A falloff shorter than the wavelength leaves one ring, a shockwave; a longer one, a train of rings. Returns a handle: `r:stop()` ends it early. Up to 32 at once; another ends the oldest.
 
 Presentation only, from any callback: an explosion's `on_explode` may start one, and every machine draws its own. Nothing about a ripple can be read back. It moves the fog's darkness too, so one in the fog shows where it is. Needs WA's Direct3D 9 (shader) renderer, as all GPU drawing does; elsewhere it isn't drawn. Clicks and `wa.world.pointer()` ignore it. A frame with a ripple costs what a zoomed one does. Since 0.9.83.
 
@@ -1457,7 +1457,7 @@ Whether the fog is on.
 
 `wa.fog.visible(x, y)`
 
-This machine's brightness at a point, 0..255, including the floor and shade. Draw and HUD callbacks only: local visibility must never steer the simulation.
+This machine's brightness at a point, 0..255, including the floor and shade. Draw and HUD callbacks only: local visibility differs between machines, so it stays out of the simulation.
 
 Units: px
 
@@ -1541,7 +1541,7 @@ Writes a store into WA's real ammo.
 
 `wa.random(a, b)`
 
-WA's own random number, the same on every machine. Simulation only; `math.random` is removed.
+WA's random number, the same on every machine. Simulation only; `math.random` is removed.
 
 ### `wa.sorted`
 

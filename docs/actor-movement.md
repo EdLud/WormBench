@@ -19,14 +19,14 @@ its speed. That is the code that moves mines, grenades and worms: it steps
 pixel by pixel, stops the actor at land and at whatever its `body.hits`
 allows, and never lets it sink into terrain.
 
-**WA does not move an actor that collides with nothing and has no gravity.**
+**WA doesn't move an actor that collides with nothing and has no gravity.**
 Nothing moves it unless your Lua does.
 
 ### One step per frame
 
-`a:move{ terrain = true, worms = false }` is not WA's collision code. It adds
+`a:move{ terrain = true, worms = false }` isn't WA's collision code. It adds
 the actor's speed to its position once, and reports whether there is land
-under its feet. It does not stop at land, bounce or meet worms.
+under its feet. It doesn't stop at land, bounce or meet worms.
 
 On an actor WA already moves, `a:move()` is a second step on top of WA's: the
 actor goes twice as fast, and that second step can push it into land.
@@ -136,7 +136,7 @@ you: the callback decides. The Highlander sentries use it to be shoved.
 
 A question, not an event: would the actor's shape at `(x, y)` touch anything
 it collides with? Good for finding a free spot to spawn or to pull a stuck
-actor out to. It says nothing about what WA did this frame.
+actor out to. It doesn't report what WA did this frame.
 
 ## Mine physics
 
