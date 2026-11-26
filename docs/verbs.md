@@ -685,6 +685,16 @@ Whether it is in the water.
 
 Whether it stands on land.
 
+### `a:sleep`
+
+`a:sleep(frames, { near = px })`
+
+The engine skips the actor's next `frames` frame calls (0 to 3000; 0 wakes it now), for an actor with nothing to do until something comes near: WA still moves it, and its `hit`, `touched` and `contact` handlers still run. It wakes early, and its frame call runs that frame, when it lands, leaves the ground, reaches the water or takes damage, when it's hit, blasted, touched or warped, or when a living worm comes within `near` pixels (whole pixels; left out, no worm wakes it). Its own bumps (`on.contact`) don't wake it, since an actor resting on a floor bumps it every frame. The frame call that ends the sleep has ev.slept, the calls skipped, so the brain can count on what those frames would have counted; every other call has 0. Simulation callbacks only.
+
+Units: frames, px
+
+Also: `ev.slept`
+
 ### `a:hit`
 
 `a:hit(damage, vx, vy, kind)`
