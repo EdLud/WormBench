@@ -113,6 +113,12 @@ Units: px
 
 Also: `wa.panel.mouse`, `wa.panel.capture`, `wa.panel.select`
 
+### `wa.panel.close`
+
+`wa.panel.close()`
+
+Shuts the stock weapon panel on this machine, sliding it away as a right click does. Inside [`wa.on.hud`](#waonhud) only. It changes only this machine's screen; a weapon pick still reaches every machine and the replay as the stock pick. False when this WormForge can't shut it. Since 1.0.0.
+
 ### `wa.weapons.notify_grant`
 
 `wa.weapons.notify_grant{ worm, items, x, y }`
@@ -1380,6 +1386,12 @@ Draws on the screen from [`wa.on.hud`](#waonhud), in screen pixels from its top 
 Units: px
 
 Also: `wa.hud.rect`, `wa.hud.text`, `wa.hud.size`
+
+### `wa.hud.key`
+
+`wa.hud.key(name)`
+
+Whether this machine's key is held right now: a letter `"a"` to `"z"`, a digit `"0"` to `"9"`, `"shift"`, `"ctrl"`, `"alt"` or `"tab"`. Inside [`wa.on.hud`](#waonhud) only. False while the chat box or the Esc menu is open, or while WA isn't the front window. It isn't synchronized: every machine reads its own keyboard, whoever's turn it is, so only what this machine draws may follow it. The simulation reads [`wa.world.keys`](#waworldkeys). Compare with the last HUD frame to find a press. Since 1.0.0.
 
 ### `window:set`
 
