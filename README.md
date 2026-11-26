@@ -1,6 +1,6 @@
 <div align="center">
 
-![description](https://i.imgur.com/6Yfe1p6.png)
+![WormBench](logo.png)
 
 <a href="docs/verbs.md">Lua verbs</a>
 
