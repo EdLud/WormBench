@@ -6,10 +6,7 @@
   next to `WA.exe`.
 - **Windows 7 or later**, Windows 10 or later recommended. On macOS or
   Linux, Wine or CrossOver works. Windows Vista and XP aren't supported.
-- **The Direct3D 9 (shader) renderer**, picked in WA's graphics options.
-  WormForge draws its own sprites, animated GIFs, effects, tooltips and fog of
-  war through it. With any other renderer the match still runs, but those
-  aren't drawn.
+- **The Direct3D 9 (shader) renderer**, in WA's graphics options (Advanced options).
 - **The same WormForge version for every player** in an online match.
   
 ## WormKit modules
