@@ -7,7 +7,7 @@
 - **Windows 7 or later**, Windows 10 or later recommended. On macOS or
   Linux, Wine or CrossOver works. Windows Vista and XP aren't supported.
 - **The Direct3D 9 (shader) renderer**, in WA's graphics options (Advanced options).
-- **The same WormForge version for every player** in an online match.
+- **The same WormBench version for every player** in an online match.
   
 ## WormKit modules
 
@@ -16,20 +16,20 @@ These WormKit modules don't work:
 ### wkFKeyRearrange: causes desyncs in online matches
 
  **Remove `wkFKeyRearrange.dll` from your WA
-folder before playing online with WormForge.**
+folder before playing online with WormBench.**
 
 
-### wkFOW: use WormForge's fog of war instead
+### wkFOW: use WormBench's fog of war instead
 
-wkFOW draws in the same places WormForge does, and WormForge then turns its
-drawing off (`wkLua.log` reports "bytes differ"). WormForge has fog of war
+wkFOW draws in the same places WormBench does, and WormBench then turns its
+drawing off (`wkLua.log` reports "bytes differ"). WormBench has fog of war
 built in: select the **Fog of war** add-on in a profile.
 
-### wkZoom: not supported but WormForge has its own Zoom
+### wkZoom: not supported but WormBench has its own Zoom
 
-### Seen working with WormForge
+### Seen working with WormBench
 
-Modules players have used in WormForge matches without known problems:
+Modules players have used in WormBench matches without known problems:
 wkWormNAT2, wkTerrainSync, wkZRealTime, wkRemapKeys, wkSuperFrontend,
 wkKick38, wkMapGEN, wkTrackMeBetter381, wkPin and wkWormOrder.
 

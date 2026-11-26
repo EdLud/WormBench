@@ -1,4 +1,4 @@
-WormForge 0.9.53 · `api_version = 4` · updated 2026-11-01.
+WormBench 0.9.53 · `api_version = 4` · updated 2026-11-01.
 
 positions and sizes in pixels, speeds in pixels per frame, with fractions.
 
@@ -235,7 +235,7 @@ Also: `uses_per_turn`
 
 `extra_pickups = "keep" | "discard"`
 
-An instant utility with Auto-Use: what becomes of units past the turn's uses, banked for later turns or dropped. Units already held and infinite ammo are never dropped. The four stock ones default to `discard`, as without Conserve Instant Utilities, which WormForge fixes. Since 0.9.82.
+An instant utility with Auto-Use: what becomes of units past the turn's uses, banked for later turns or dropped. Units already held and infinite ammo are never dropped. The four stock ones default to `discard`, as without Conserve Instant Utilities, which WormBench fixes. Since 0.9.82.
 
 Also: `extra_pickups`
 

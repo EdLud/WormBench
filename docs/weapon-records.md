@@ -1,7 +1,7 @@
 # Weapon records
 
 A **record** is WA's built-in description of a weapon: how it fires, how its
-projectiles behave, and which sounds and sprites it uses. WormForge names
+projectiles behave, and which sounds and sprites it uses. WormBench names
 these settings in Lua tables. The names come from reverse engineering,
 and some native parameters are still unknown.
 
@@ -30,7 +30,7 @@ Unspecified settings inherit from the base. Alternatively, use
 values. Profile settings, such as shots and turn-ending behaviour, can apply
 further overrides for a match (the profile settings).
 
-For a complete port, see [Chilli Bomb](https://github.com/EdLud/WormForge-mods/blob/main/px/weapons/chilli_bomb.lua):
+For a complete port, see [Chilli Bomb](https://github.com/EdLud/WormBench-mods/blob/main/px/weapons/chilli_bomb.lua):
 its record settings, art and Lua behaviour live in the same weapon module.
 
 Choose a base close to the intended behaviour. Several stock weapons share
@@ -55,7 +55,7 @@ contribute. Changing the action can change how WA interprets inherited
 parameters. For a grenade-like weapon, start with `copy_from = "stock.grenade"`
 and change the settings you need.
 
-WormForge rejects fields from the wrong family, and action/payload mismatches
+WormBench rejects fields from the wrong family, and action/payload mismatches
 when those selectors are explicitly supplied in the same declaration.
 
 ## Values and units
@@ -281,7 +281,7 @@ pixels/frame; `fires.launch_power_pct` doesn't scale it again.
 
 Scripted children inherit the source weapon's missile settings, independently
 of `clusters.bit`. Override child-specific fuse, Space detonation and payload
-settings in the launch, as [Chilli Bomb](https://github.com/EdLud/WormForge-mods/blob/main/px/weapons/chilli_bomb.lua) does.
+settings in the launch, as [Chilli Bomb](https://github.com/EdLud/WormBench-mods/blob/main/px/weapons/chilli_bomb.lua) does.
 
 Settings without a name are reachable through `raw`, for older ports and
 experiments. Use the named fields where they exist; a name doesn't mean

@@ -1,4 +1,4 @@
-# WormForge starting guide, part 2: Weapons
+# WormBench starting guide, part 2: Weapons
 
 [Part 1](starting-guide-1-your-first-mod.md) built the Moon Grenade. Part 2
 goes through a weapon component in full: its data and how a profile changes
@@ -8,7 +8,7 @@ icon of its own.
 
 The new weapon is the **Scatter Bazooka**: one shot fires three smaller
 rockets in a fan. The finished mod is
-[examples/starting_guide](https://github.com/EdLud/WormForge-mods/tree/main/examples/starting_guide)
+[examples/starting_guide](https://github.com/EdLud/WormBench-mods/tree/main/examples/starting_guide)
 in the mods repository.
 
 Tutorial Overview:
@@ -142,7 +142,7 @@ from the profile.
 - A field that neither sets is `nil` in `ctx.data`, and WA's value stands. A
   weapon of yours without `ammo.round_start` has infinite ammo, and one
   without a crate weight has 20, a WSC crate probability of 1.
-- `ctx.data` is for reading. WormForge writes the settings into the game
+- `ctx.data` is for reading. WormBench writes the settings into the game
   before any `install` runs, so changing `ctx.data` changes nothing.
 - Stock weapons take settings the same way: part 1's profile gives
   `stock.ninja_rope` infinite ammo.
@@ -266,7 +266,7 @@ icon = "sprites/moon_grenade.png"
   the edge. A PNG of up to 24×24 works too.
 - The panel shows it in full colour, a little dimmer except under the
   pointer, as it shows the stock icons. It's checkered while the weapon
-  can't be used yet. On a renderer other than Direct3D 9 (shader), WormForge
+  can't be used yet. On a renderer other than Direct3D 9 (shader), WormBench
   fits its colours to those of the stock icons.
 - `panel_icon = "banana"` borrows the icon of a stock weapon instead, by its
   name. Without `panel_icon`, a weapon shows the icon of the weapon it copies:
@@ -288,7 +288,7 @@ missile = {
 Everything you don't name keeps the value of the base.
 [Weapon records](weapon-records.md) lists every table and field by family:
 `missile` and `clusters` for what grenades and bazookas fire, `gun` for the
-Shotgun and the Uzi, `mine`, `strike` and more. WormForge refuses a field the
+Shotgun and the Uzi, `mine`, `strike` and more. WormBench refuses a field the
 weapon's family doesn't have, and the error names it.
 
 `wa.weapons.data(id)` reads a record back as the same tables, in a callback
@@ -362,8 +362,8 @@ down. `weapon = "stock.<name>"` fires the stock weapon.
 ## Try it
 
 1. Copy the new files into your `starting_guide` folder in
-   `WormForge/Mods/`, or the whole folder again, and press **Refresh** in the
-   WormForge Mods window.
+   `WormBench/Mods/`, or the whole folder again, and press **Refresh** in the
+   WormBench Mods window.
 2. Under **Bundled profiles**, pick **Scatter Bazooka — Starting guide**.
 3. Start an offline game. Press F1 until the Scatter Bazooka is selected,
    charge and fire: three rockets fan out, each with a smaller blast than the

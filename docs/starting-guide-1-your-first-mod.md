@@ -1,18 +1,18 @@
-# WormForge starting guide, part 1: Your first mod
+# WormBench starting guide, part 1: Your first mod
 
 This guide is for people who write Lua and want to mod Worms Armageddon with
-WormForge. Part 1 builds one small weapon from an empty folder, plays it, and
+WormBench. Part 1 builds one small weapon from an empty folder, plays it, and
 sets out the few rules every mod follows. The later parts go deeper, one
 subject each.
 
 The weapon is the **Moon Grenade**: A copy of the stock Grenade with about a third of the
 gravity and a small burst, which digs three craters in the ground below it.
-The finished mod is [examples/starting_guide](https://github.com/EdLud/WormForge-mods/tree/main/examples/starting_guide)
+The finished mod is [examples/starting_guide](https://github.com/EdLud/WormBench-mods/tree/main/examples/starting_guide)
 in the mods repository.
 
 Tutorial Overview:
 
-- A **mod** is a folder in `WormForge/Mods/` with a `mod.toml` and Lua files.
+- A **mod** is a folder in `WormBench/Mods/` with a `mod.toml` and Lua files.
   It offers **components**: weapons, and features (anything that isn't a
   weapon).
 - Nothing in a mod runs automatically. A **profile** picks the weapons and
@@ -25,7 +25,7 @@ Tutorial Overview:
   match.
 - Online, the host's profile and mods are sent to every player in the Lobby. Replays carry
   them too.
-- Three rules: each weapon has an id which is a string; WormForge Lua works with Pixel Units;
+- Three rules: each weapon has an id which is a string; WormBench Lua works with Pixel Units;
   only the simulation changes the game.
 
 ## What a mod is
@@ -42,7 +42,7 @@ A mod is what you install; a profile is what you play.
 - A **profile** is what a game runs: its weapons and where each sits on the
   panel, each weapon's settings (ammo, delay, crates, ...), the features and
   their options, and WSC settings. Players make profiles in the loader
-  and save them in `WormForge/Profiles/`. A mod can ship its own, in its
+  and save them in `WormBench/Profiles/`. A mod can ship its own, in its
   `profiles/` folder.
 
 When a match starts, only what the profile selects runs. The rest of an
@@ -54,23 +54,23 @@ installed mod costs nothing: none of its code runs, none of its sprites load.
 
 ## Where your mod lives
 
-WormForge keeps everything in one folder, `WormForge`, next to `WA.exe`:
+WormBench keeps everything in one folder, `WormBench`, next to `WA.exe`:
 
 ```text
 Worms Armageddon/
   WA.exe, wkLua.dll
-  wkLua.log, wkluaerror.txt     what WormForge logs (see below)
-  WormForge/
-    wormforge.toml              the loader's settings and the profile being edited
+  wkLua.log, wkluaerror.txt     what WormBench logs (see below)
+  WormBench/
+    wormbench.toml              the loader's settings and the profile being edited
     Profiles/                   saved profiles
     Mods/
       wf-lib/                   mods installed from the catalogue: the loader's
       starting_guide/           your mod
 ```
 
-The **Open Mods folder** button in the WormForge Mods window opens `Mods/`.
+The **Open Mods folder** button in the WormBench Mods window opens `Mods/`.
 If WA's folder can't be written to (an install under Program Files), the
-`WormForge` folder is `%LOCALAPPDATA%\WormForge` instead.
+`WormBench` folder is `%LOCALAPPDATA%\WormBench` instead.
 
 ### wf-lib belongs to the loader
 
@@ -81,7 +81,7 @@ folder of its own in `Mods/wf-lib/`.
   your own. The catalogue's installs and updates never touch such a mod.
 - Edit a file inside `wf-lib`, and that mod shows **Local changes**: Update
   all skips it from then on. **Replace (backup)** installs the catalogue's
-  copy again and moves yours to `WormForge/Backups/Packs/`.
+  copy again and moves yours to `WormBench/Backups/Packs/`.
 - `wf-lib/...` is also how shared code is named: a library mod can offer
   modules that other mods load with `require("wf-lib/<name>")`. A later part
   covers it; it has nothing to do with where your files go.
@@ -120,7 +120,7 @@ arrange; `mod.toml` points to each file.
 id = "example.starting_guide"
 name = "Starting guide"
 version = "0.1.0"
-author = "WormForge"
+author = "WormBench"
 api_version = 4
 format_version = 2
 
@@ -138,7 +138,7 @@ default_position = { row = "F2", column = 6 }
 |---|---|
 | `id` | The mod's id: lowercase letters, digits, `.`, `_` and `-`. |
 | `name`, `version`, `author` | What the loader shows on the mod's card. |
-| `api_version`, `format_version` | `4` and `2`: the Lua API and the `mod.toml` format the mod is written for. WormForge refuses a mod written for others, and reports why. |
+| `api_version`, `format_version` | `4` and `2`: the Lua API and the `mod.toml` format the mod is written for. WormBench refuses a mod written for others, and reports why. |
 | `[[components]]` | One block per weapon or feature. |
 | component `id` | Unique among all installed mods: up to 64 lowercase letters, digits, `.`, `_` and `-`. `stock.` is taken: it names the stock weapons. Start yours with something of your own, as `guide.` here. |
 | `type` | `"weapon"` or `"feature"`. |
@@ -262,15 +262,15 @@ ammo = -1
 
 ## Try it
 
-1. Copy the `starting_guide` folder into `WormForge/Mods/`.
-2. Start WA. The WormForge Mods window opens beside it. If WA was already
+1. Copy the `starting_guide` folder into `WormBench/Mods/`.
+2. Start WA. The WormBench Mods window opens beside it. If WA was already
    running, press **Refresh** in that window.
 3. In the profile line at the top of the window, switch **My profiles** to
    **Bundled profiles** and pick **Moon Grenade — Starting guide**. That opens
    a working copy of the mod's profile; saving it under a name of yours makes
    it one of your profiles.
 4. Start an offline game: a hotseat match with two teams is quickest. As it
-   loads, the game displays *Weapons come from the WormForge profile, not the
+   loads, the game displays *Weapons come from the WormBench profile, not the
    lobby's weapon settings*.
 5. Press F2 until the Moon Grenade is selected, and throw it at the ground.
    It floats, bursts small, and three craters open in the land below it.
@@ -284,7 +284,7 @@ Weapon Panel**, search for it and double-click it.
 
 Two files next to `WA.exe` tell you what happened:
 
-- **`wkLua.log`**: everything WormForge logs, your own lines included.
+- **`wkLua.log`**: everything WormBench logs, your own lines included.
   `wa.log("...")` writes one, tagged with your component's id:
   `[guide.moon_grenade] craters below 812, 403`. Lua's `print` doesn't reach the
   log; use `wa.log`.
@@ -293,8 +293,8 @@ Two files next to `WA.exe` tell you what happened:
 
 | What's wrong | Where it shows |
 |---|---|
-| A mistake in `mod.toml` | The mod's card in the WormForge Mods window shows *doesn't load:*, with every problem. |
-| A Lua error as the match loads: a typo, a field that doesn't exist | The game displays *WormForge: the profile's mods failed to load (...). Playing plain WA.*, and `wkluaerror.txt` has the error. |
+| A mistake in `mod.toml` | The mod's card in the WormBench Mods window shows *doesn't load:*, with every problem. |
+| A Lua error as the match loads: a typo, a field that doesn't exist | The game displays *WormBench: the profile's mods failed to load (...). Playing plain WA.*, and `wkluaerror.txt` has the error. |
 | A Lua error in a callback during play | `wkluaerror.txt` names the callback and the error (`missile on_explode: ...`); the game goes on. |
 
 ## Changing your mod
@@ -303,16 +303,16 @@ Two files next to `WA.exe` tell you what happened:
   every match. Save, start a new match, and your change is in it: no need to
   restart WA. A match already running keeps what it loaded.
 - After adding a mod folder or a profile file, press **Refresh** in the
-  WormForge Mods window to see it.
+  WormBench Mods window to see it.
 - An opened bundled profile is a working copy: after editing
   `profiles/Moon Grenade.toml`, pick it again from Bundled profiles.
-- Only a new WormForge (`wkLua.dll`) needs WA restarted.
+- Only a new WormBench (`wkLua.dll`) needs WA restarted.
 
 ## Online and in replays
 
 The other players don't need your mod installed:
 
-- When the **host lights the ready bulb**, WormForge copies the host's
+- When the **host lights the ready bulb**, WormBench copies the host's
   profile and every mod it uses (with the libraries they need), and sends
   them to every player in the lobby. The game can start only once every
   player has them; until then the host's lobby shows what the start is
@@ -321,7 +321,7 @@ The other players don't need your mod installed:
   settings, whatever each player has in their own `Mods/`.
 - What the host edits after lighting the bulb doesn't reach that game. Put
   the bulb out and light it again to send the new version.
-- Every player needs WormForge, the same version as the host's. A player
+- Every player needs WormBench, the same version as the host's. A player
   without it can't play a game with mods: the start waits, and the lobby shows why.
 - A **replay** carries the profile and the mods' files the same way, so it
   plays on a machine that doesn't have your mod, with your code as it was
@@ -331,7 +331,7 @@ The other players don't need your mod installed:
 
 ### 1. Every weapon needs an ID
 
-WA numbers its weapons by slot. WormForge keeps those numbers away from
+WA numbers its weapons by slot. WormBench keeps those numbers away from
 Lua: a weapon is its **id**. `stock.grenade` is the stock Grenade,
 `guide.moon_grenade` is yours. The profile decides where a weapon sits, so
 the same file works wherever a player puts it, next to any other mod's
@@ -347,7 +347,7 @@ frames a second), and fractions are fine: `ev.x` may be `812.5`.
 
 In an online game every machine runs the whole match itself, and only the
 players' keys travel between them. So whatever changes the game must come
-out the same on every machine. WormForge splits your code in two:
+out the same on every machine. WormBench splits your code in two:
 
 - **Simulation callbacks** run on every machine at the same moment of the
   game: a weapon's callbacks, such as `on_explode`, and the `wa.on` events
@@ -355,7 +355,7 @@ out the same on every machine. WormForge splits your code in two:
   cut land, move and hurt worms, spawn things, change ammo.
 - **Drawing callbacks**, `wa.on.draw` and `wa.on.hud`, run on each machine
   whenever it draws a frame, and each machine draws at its own pace. They
-  may read anything and change nothing: WormForge refuses a change to the
+  may read anything and change nothing: WormBench refuses a change to the
   game from them, with an error.
 
 The Moon Grenade does both: `on_explode` cuts the land and
@@ -388,7 +388,7 @@ records `last_burst`; the HUD only reads it.
 > ```
 >
 > - PX hooks every worm's shot and asks which weapon it is by its name. In
->   WormForge the code sits in the weapon's file, and a weapon is named
+>   WormBench the code sits in the weapon's file, and a weapon is named
 >   by its id, which stays the same whatever the weapon is called.
 > - `GS->GetRandom()` is WA's randomness, as `wa.random` is.
 > - `Render()` is drawing, as `wa.on.draw` and `wa.on.hud` are.
