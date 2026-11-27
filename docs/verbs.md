@@ -117,7 +117,7 @@ Also: `wa.panel.mouse`, `wa.panel.capture`, `wa.panel.select`
 
 `wa.panel.close()`
 
-Shuts the stock weapon panel on this machine, sliding it away as a right click does. Inside [`wa.on.hud`](#waonhud) only. It changes only this machine's screen; a weapon pick still reaches every machine and the replay as the stock pick. False when this WormForge can't shut it. Since 1.0.0.
+Shuts the stock weapon panel on this machine, sliding it away as a right click does. Inside [`wa.on.hud`](#waonhud) only. It changes only this machine's screen; a weapon pick still reaches every machine and the replay as the stock pick. False when this WormBench can't shut it. Since 1.0.0.
 
 ### `wa.weapons.notify_grant`
 
@@ -1375,7 +1375,7 @@ Also: `hud.tray`
 
 `wa.hud.utilities.add{ weapon, worm | team }`
 
-Puts a utility in the utility tray, the box of icons above the wind bar that shows what's in effect. WormForge draws the tray in place of the stock one and keeps its look and slide: the stock utilities first (Low Gravity, Fast Walk, Laser Sight, Invisibility, Damage x2, Crate Spy, etc.), then the mods' entries in weapon slot order, each as its weapon's panel icon. An entry for a worm shows while that worm has the turn; one for a team (`worm.team`) on that team's turn. Adding it again returns the same entry. `remove()`, `is_open()`. A worm's entry goes when the worm dies. Presentation only, from any callback. Drawn on the GPU layer (`Direct3D` 9 shader); without it the stock tray shows the stock utilities only. At most 32.
+Puts a utility in the utility tray, the box of icons above the wind bar that shows what's in effect. WormBench draws the tray in place of the stock one and keeps its look and slide: the stock utilities first (Low Gravity, Fast Walk, Laser Sight, Invisibility, Damage x2, Crate Spy, etc.), then the mods' entries in weapon slot order, each as its weapon's panel icon. An entry for a worm shows while that worm has the turn; one for a team (`worm.team`) on that team's turn. Adding it again returns the same entry. `remove()`, `is_open()`. A worm's entry goes when the worm dies. Presentation only, from any callback. Drawn on the GPU layer (`Direct3D` 9 shader); without it the stock tray shows the stock utilities only. At most 32.
 
 Units: px
 
