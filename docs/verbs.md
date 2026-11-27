@@ -779,7 +779,7 @@ Also: `wa.crates.set_shares`
 
 `wa.mines.spawn{ owner, x, y, vx, vy, fuse, arm, damage, radius, dud_proof, triggered, terrain_keep_speed_pct, on_contact }`
 
-Builds one of WA's mines, as Project X's new CMine: WA flies, arms, triggers and explodes it as its own. A worm owner's team lays it; an actor's mine is the map's. triggered = true starts it triggered (arming still runs first); `terrain_keep_speed_pct` (0..1000) is the speed it keeps along land until WA arms it. `on_contact` = function(mine, ev) hears what that mine's own movement ran into, as an actor's on.contact (Project X's CMine::Collide).
+Builds one of WA's mines, as Project X's new CMine: WA flies, arms, triggers and explodes it as its own. A worm owner's team lays it; an actor's mine is the map's, and so is one with owner = `"none"` (since 1.0.0). triggered = true starts it triggered (arming still runs first); `terrain_keep_speed_pct` (0..1000) is the speed it keeps along land until WA arms it. `on_contact` = function(mine, ev) hears what that mine's own movement ran into, as an actor's on.contact (Project X's CMine::Collide).
 
 Units: position px · speed px/frame · fuse, arm ms · radius px
 
@@ -1039,6 +1039,14 @@ A radial blast with no sound or visuals: every body in `radius` takes `damage` f
 
 Units: position, radius px · push\_pct %
 
+### `wa.world.explode`
+
+`wa.world.explode{ x, y, owner, damage, id, below }`
+
+WA's explosion at a point, with its sprite, sound, hole and hits, as [`a:explode`](#aexplode) makes one at an actor: damage (default 50) and id (default 100) are its, and below (default true) puts it a pixel lower. owner is a worm or actor, or `"none"` for no team's; left out, the callback's own worm or actor; a callback without one, such as `wa.on.frame`, must name it. Simulation callbacks only. Since 1.0.0.
+
+Units: position px
+
 ### `wa.world.collides`
 
 `wa.world.collides{ x, y, radius, with, ignore, grab }`
@@ -1065,9 +1073,9 @@ Units: px
 
 ### `wa.magnetism.field`
 
-`wa.magnetism.field{ source = actor, ... }`
+`wa.magnetism.field{ source = actor, ... }` or `wa.magnetism.field{ x, y, ... }`
 
-Registers a match-wide magnetic field on an actor; fields sum across packs from one simulation-step snapshot and disappear with their source. Actors opt in with magnetic = 1.
+Registers a match-wide magnetic field on an actor, or at a point; fields sum across packs from one simulation-step snapshot. A source's field follows it and disappears with it; a point field stays where it's put until `field:move(x, y)` (since 1.0.0) and lasts until `field:remove()`. Actors opt in with magnetic = 1.
 
 Units: px
 
@@ -1230,6 +1238,12 @@ Also: `ev.drum`, `ev.team`, `ev:replace`
 When a worm skims off the water, in the simulation. A worm skims when it reaches the water fast and flat: more than 6 px/frame across, less than 8 px/frame down, and more than 1.5 times as fast across as down. The handler runs after the skim: the worm sits on the water line, its vx is 0.8 of what it was and its vy points up, the Splish has played, and the worm has kept or lost control as Keep Control After Skimming in the scheme says. Each skim is one event.
 
 Also: `event.worm`
+
+### `wa.on.frame`
+
+`wa.on.frame(fn)`
+
+Once per simulation frame, after every body has moved and every actor's brain has run, the same on every machine. It's passed nothing: `wa.world.frame()` counts the frames. It has no worm or actor of its own, so a spawn or `wa.world.explode` there names its owner, and the hits it sends count for no team. Use it for per-frame work that belongs to no body, such as a particle list or a timer, instead of a hidden actor. Since 1.0.0.
 
 ### `wa.on.draw`
 
