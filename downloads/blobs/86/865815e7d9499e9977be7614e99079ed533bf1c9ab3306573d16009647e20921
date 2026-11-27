@@ -1,0 +1,807 @@
+# WormBench profile "Full Wormforage": made in the mod loader; safe to edit by hand.
+description = "The Full Fromage"
+features = ["core.utilities", "px.oil_drums", "px.saw_random", "spawn.bees.swarm"]
+
+[options."core.utilities"]
+agility = true
+collect_viewer = true
+damage_numbers = true
+ex_turn_side = true
+fast_aim = true
+instant_death = "in_flight"
+live_hp = true
+parkour = true
+
+[options."px.saw_random"]
+quantity = 2
+
+[options."spawn.bees.swarm"]
+bee_density = 10
+
+[scheme]
+hazards = 143
+loss_of_control_doesn_t_end_turn = true
+turn_time = "unlimited"
+weapon_use_doesn_t_end_turn = true
+worm_energy = 250
+
+[weapon_settings."px.3_girder_pack"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.banana_express"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.blaster_worm"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.bowling_ball_strike"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.burning_sheep_launcher"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.burst_rifle"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.chilli_bomb"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.cow_launcher"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.crate_strike"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.double_bazooka"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.electric_grenade"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.electromagnet"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.ferret"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.fire_jump"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.ghost_sheep"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.gravity_control"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.gravler"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.gravler_strike"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.hang_glider"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.helicopter"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.hellish_hand_grenade"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.ice_arrow"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.igniter"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.javelin"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.kamikaze_rocket"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.laser_gun"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.lightning_strike"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.mortar_strike"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.nuke_rocket"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.old_woman_launcher"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.pigeon_strike"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.pogo_sheep"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.portal_gun"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.real_shotgun"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.reinforcement"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.remote_roller"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.s_m_a_r_t_bomb"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.sentry_gun"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.sentry_laser"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.shadow_bolt"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.skip_go_surrender"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.sniper_rifle"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.sticky_bomb"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.super_drill"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.super_gravedigger"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.super_tele"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.swim_suit"]
+after_use = "continue"
+ammo = -1
+auto_use = true
+
+[weapon_settings."px.thumper_nade"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.thumper_nade_strike"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.valyrian_fire"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.weapon_crate"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.wind_changer"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."px.windy_cluster"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."stock.carpet_bomb"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."stock.donkey"]
+ammo = -1
+
+[weapon_settings."stock.fast_walk"]
+after_use = "continue"
+ammo = -1
+auto_use = true
+
+[weapon_settings."stock.holy_grenade"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."stock.homing_pigeon"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."stock.jet_pack"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."stock.low_gravity"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."stock.mad_cow"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."stock.mine"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."stock.ming_vase"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."stock.ninja_rope"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."stock.petrol_bomb"]
+after_use = "continue"
+ammo = -1
+
+[weapon_settings."stock.select_worm"]
+after_use = "continue"
+ammo = -1
+
+[weapons."cursors.cursor"]
+column = 1
+row = "F8"
+
+[weapons."px.3_girder_pack"]
+column = 5
+row = "F7"
+
+[weapons."px.antifire_suit"]
+column = 1
+row = "F5"
+
+[weapons."px.attack_helicopter"]
+column = 9
+row = "F6"
+
+[weapons."px.auto_ballista"]
+column = 7
+row = "F11"
+
+[weapons."px.banana_express"]
+column = 5
+row = "F9"
+
+[weapons."px.barrel_launcher"]
+column = 8
+row = "F1"
+
+[weapons."px.blast_zone"]
+column = 8
+row = "F4"
+
+[weapons."px.blaster_worm"]
+column = 4
+row = "F1"
+
+[weapons."px.bowling_ball"]
+column = 1
+row = "F7"
+
+[weapons."px.bowling_ball_strike"]
+column = 4
+row = "F10"
+
+[weapons."px.bulldozer"]
+column = 8
+row = "F5"
+
+[weapons."px.bunker_buster"]
+column = 8
+row = "F6"
+
+[weapons."px.burning_sheep_launcher"]
+column = 5
+row = "F1"
+
+[weapons."px.burst_rifle"]
+column = 4
+row = "F3"
+
+[weapons."px.chilli_bomb"]
+column = 1
+row = "F9"
+
+[weapons."px.cow_launcher"]
+column = 1
+row = "F11"
+
+[weapons."px.crate_strike"]
+column = 3
+row = "F11"
+
+[weapons."px.death_mark"]
+column = 6
+row = "F4"
+
+[weapons."px.digging_cluster_bomb"]
+column = 9
+row = "F3"
+
+[weapons."px.double_bazooka"]
+column = 1
+row = "F1"
+
+[weapons."px.double_jump"]
+column = 2
+row = "F8"
+
+[weapons."px.drilling_crew"]
+column = 10
+row = "F3"
+
+[weapons."px.electric_grenade"]
+column = 5
+row = "F2"
+
+[weapons."px.electric_mine"]
+column = 7
+row = "F4"
+
+[weapons."px.electromagnet"]
+column = 4
+row = "F7"
+
+[weapons."px.famas"]
+column = 9
+row = "F10"
+
+[weapons."px.far_sight"]
+column = 9
+row = "F4"
+
+[weapons."px.ferret"]
+column = 4
+row = "F9"
+
+[weapons."px.fire_cluster_bomb"]
+column = 9
+row = "F9"
+
+[weapons."px.fire_jump"]
+column = 1
+row = "F4"
+
+[weapons."px.flame_turret"]
+column = 10
+row = "F11"
+
+[weapons."px.gatling_gun"]
+column = 10
+row = "F9"
+
+[weapons."px.ghost_sheep"]
+column = 5
+row = "F5"
+
+[weapons."px.golden_grenade"]
+column = 10
+row = "F4"
+
+[weapons."px.gravity_control"]
+column = 2
+row = "utility"
+
+[weapons."px.gravity_gun"]
+column = 9
+row = "F5"
+
+[weapons."px.gravler"]
+column = 6
+row = "F5"
+
+[weapons."px.gravler_strike"]
+column = 5
+row = "F6"
+
+[weapons."px.hang_glider"]
+column = 3
+row = "F8"
+
+[weapons."px.health_zone"]
+column = 3
+row = "F9"
+
+[weapons."px.helicopter"]
+column = 1
+row = "utility"
+
+[weapons."px.hellish_hand_grenade"]
+column = 2
+row = "F9"
+
+[weapons."px.homing_air_strike"]
+column = 6
+row = "F6"
+
+[weapons."px.homing_cluster_bomb"]
+column = 7
+row = "F5"
+
+[weapons."px.homing_curse"]
+column = 6
+row = "F2"
+
+[weapons."px.homing_digger"]
+column = 7
+row = "F10"
+
+[weapons."px.homing_fire_cluster"]
+column = 8
+row = "F9"
+
+[weapons."px.hot_air_balloon"]
+column = 8
+row = "F8"
+
+[weapons."px.i_bomb"]
+column = 7
+row = "F2"
+
+[weapons."px.ice_arrow"]
+column = 5
+row = "F11"
+
+[weapons."px.igniter"]
+column = 2
+row = "F1"
+
+[weapons."px.j_bomb"]
+column = 9
+row = "F2"
+
+[weapons."px.javelin"]
+column = 5
+row = "F4"
+
+[weapons."px.jump"]
+column = 7
+row = "F7"
+
+[weapons."px.kamikaze_rocket"]
+column = 4
+row = "F4"
+
+[weapons."px.lantern"]
+column = 6
+row = "F7"
+
+[weapons."px.laser_gun"]
+column = 3
+row = "F3"
+
+[weapons."px.laser_reflect"]
+column = 10
+row = "F7"
+
+[weapons."px.lightning_strike"]
+column = 2
+row = "F6"
+
+[weapons."px.marked_for_death"]
+column = 10
+row = "F5"
+
+[weapons."px.megashark"]
+column = 10
+row = "F2"
+
+[weapons."px.mine_launcher"]
+column = 8
+row = "F12"
+
+[weapons."px.mine_turret"]
+column = 8
+row = "F11"
+
+[weapons."px.mines_gun"]
+column = 9
+row = "F12"
+
+[weapons."px.mortar_strike"]
+column = 1
+row = "F6"
+
+[weapons."px.ninja_bomb"]
+column = 8
+row = "F7"
+
+[weapons."px.ninja_star"]
+column = 8
+row = "F3"
+
+[weapons."px.nuke_rocket"]
+column = 2
+row = "F5"
+
+[weapons."px.old_woman_launcher"]
+column = 2
+row = "F11"
+
+[weapons."px.petrol_turret"]
+column = 9
+row = "F11"
+
+[weapons."px.pigeon_strike"]
+column = 3
+row = "F6"
+
+[weapons."px.platform"]
+column = 9
+row = "F7"
+
+[weapons."px.pogo_sheep"]
+column = 3
+row = "F5"
+
+[weapons."px.portal_gun"]
+column = 5
+row = "F8"
+
+[weapons."px.power_shotgun"]
+column = 7
+row = "F12"
+
+[weapons."px.precipitator"]
+column = 7
+row = "F3"
+
+[weapons."px.real_shotgun"]
+column = 1
+row = "F3"
+
+[weapons."px.reinforcement"]
+column = 8
+row = "F10"
+
+[weapons."px.remote_roller"]
+column = 2
+row = "F10"
+
+[weapons."px.ripper_star"]
+column = 3
+row = "F10"
+
+[weapons."px.s_m_a_r_t_bomb"]
+column = 3
+row = "F1"
+
+[weapons."px.saw_grenade"]
+column = 5
+row = "F12"
+
+[weapons."px.security_grenade"]
+column = 6
+row = "F1"
+
+[weapons."px.sentry_gun"]
+column = 3
+row = "F4"
+
+[weapons."px.sentry_laser"]
+column = 2
+row = "F4"
+
+[weapons."px.shadow_bolt"]
+column = 5
+row = "F3"
+
+[weapons."px.skip_go_surrender"]
+column = 1
+row = "F12"
+
+[weapons."px.small_worm"]
+column = 10
+row = "utility"
+
+[weapons."px.sniper_rifle"]
+column = 2
+row = "F3"
+
+[weapons."px.spot_hider"]
+column = 7
+row = "F9"
+
+[weapons."px.sticky_bomb"]
+column = 1
+row = "F2"
+
+[weapons."px.submarine_attack"]
+column = 4
+row = "F6"
+
+[weapons."px.super_bunker_buster"]
+column = 7
+row = "F6"
+
+[weapons."px.super_drill"]
+column = 2
+row = "F7"
+
+[weapons."px.super_gravedigger"]
+column = 3
+row = "F2"
+
+[weapons."px.super_tele"]
+column = 4
+row = "F8"
+
+[weapons."px.swim_suit"]
+column = 4
+row = "utility"
+
+[weapons."px.tazer"]
+column = 10
+row = "F8"
+
+[weapons."px.tele_arrow"]
+column = 6
+row = "utility"
+
+[weapons."px.telenade"]
+column = 7
+row = "F8"
+
+[weapons."px.thrown_dynamite"]
+column = 8
+row = "F2"
+
+[weapons."px.thrown_ming_vase"]
+column = 8
+row = "utility"
+
+[weapons."px.thumper_nade"]
+column = 4
+row = "F2"
+
+[weapons."px.thumper_nade_strike"]
+column = 5
+row = "F10"
+
+[weapons."px.tnt"]
+column = 9
+row = "utility"
+
+[weapons."px.toxic_grenade"]
+column = 7
+row = "F1"
+
+[weapons."px.trampoline"]
+column = 9
+row = "F1"
+
+[weapons."px.valyrian_fire"]
+column = 1
+row = "F10"
+
+[weapons."px.weapon_crate"]
+column = 4
+row = "F12"
+
+[weapons."px.wind_changer"]
+column = 2
+row = "F12"
+
+[weapons."px.windy_cluster"]
+column = 2
+row = "F2"
+
+[weapons."px.wings"]
+column = 9
+row = "F8"
+
+[weapons."px.wish_of_death"]
+column = 10
+row = "F1"
+
+[weapons."spawn.bees.keeper"]
+column = 6
+row = "F12"
+
+[weapons."stock.carpet_bomb"]
+column = 10
+row = "F10"
+
+[weapons."stock.donkey"]
+column = 6
+row = "F3"
+
+[weapons."stock.fast_walk"]
+column = 7
+row = "utility"
+
+[weapons."stock.holy_grenade"]
+column = 6
+row = "F9"
+
+[weapons."stock.homing_pigeon"]
+column = 10
+row = "F6"
+
+[weapons."stock.jet_pack"]
+column = 3
+row = "utility"
+
+[weapons."stock.low_gravity"]
+column = 5
+row = "utility"
+
+[weapons."stock.mad_cow"]
+column = 6
+row = "F11"
+
+[weapons."stock.mine"]
+column = 4
+row = "F5"
+
+[weapons."stock.ming_vase"]
+column = 4
+row = "F11"
+
+[weapons."stock.ninja_rope"]
+column = 6
+row = "F8"
+
+[weapons."stock.petrol_bomb"]
+column = 6
+row = "F10"
+
+[weapons."stock.select_worm"]
+column = 3
+row = "F12"
+
+[weapons."utilities.bullet_time"]
+column = 3
+row = "F7"
