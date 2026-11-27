@@ -121,7 +121,7 @@ id = "example.starting_guide"
 name = "Starting guide"
 version = "0.1.0"
 author = "WormBench"
-api_version = 4
+api_version = 5
 format_version = 2
 
 [[components]]
@@ -138,7 +138,7 @@ default_position = { row = "F2", column = 6 }
 |---|---|
 | `id` | The mod's id: lowercase letters, digits, `.`, `_` and `-`. |
 | `name`, `version`, `author` | What the loader shows on the mod's card. |
-| `api_version`, `format_version` | `4` and `2`: the Lua API and the `mod.toml` format the mod is written for. WormBench refuses a mod written for others, and reports why. |
+| `api_version`, `format_version` | `5` and `2`: the Lua API and the `mod.toml` format the mod is written for. WormBench refuses a mod written for others, and reports why. |
 | `[[components]]` | One block per weapon or feature. |
 | component `id` | Unique among all installed mods: up to 64 lowercase letters, digits, `.`, `_` and `-`. `stock.` is taken: it names the stock weapons. Start yours with something of your own, as `guide.` here. |
 | `type` | `"weapon"` or `"feature"`. |

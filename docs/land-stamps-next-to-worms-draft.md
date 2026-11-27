@@ -80,7 +80,7 @@ if not target then
 end
 if target then
   target.vx, target.vy = vx / 4, vy / 4
-  if target.kind == "worm" then target:hurt(20)
+  if target.kind == "worm" then target:hit(20)
   else target:hit(20, vx / 2, vy / 2, "projectile") end
   return
 end

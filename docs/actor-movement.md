@@ -9,9 +9,9 @@ your Lua, never both.
 
 | Your actor… | Spawn it with | It moves by | Example |
 |---|---|---|---|
-| flies or walks by itself and must stop at land | `body = { hits = { land = true, ... } }`, `gravity = false` (or `true` for a walker) | WA, every frame; you set `a.vx`, `a.vy` to steer | a bee, a drone |
+| flies or walks by itself and must stop at land | `body = { hits = { land = true, ... } }`, and `gravity = 1` for a walker | WA, every frame; you set `a.vx`, `a.vy` to steer | a bee, a drone |
 | is thrown, lands, bounces and comes to rest | `body = { physics = "mine" }` | WA, as it moves a mine | the Sentry Gun's turret |
-| is decoration and touches nothing | no `body`, `collide = false`, `gravity = false` | your Lua: `a:gravity()` and `a:move{}` each frame | a shell casing |
+| is decoration and touches nothing | no `body`, no `gravity` | your Lua: `a.vy = a.vy + wa.world.gravity()` and `a:move{}` each frame | a shell casing |
 
 **WA moves any actor that collides with something or has gravity.** Every
 frame, before your `frame` callback runs, WA's collision code moves it by
@@ -21,6 +21,10 @@ allows, and never lets it sink into terrain.
 
 **WA doesn't move an actor that collides with nothing and has no gravity.**
 Nothing moves it unless your Lua does.
+
+A spawn asks for everything: an actor has no gravity, collision, looping,
+drowning or persisting unless its spawn names them. `gravity` is a factor,
+as `worm.gravity` is: `1` normal, `0.5` half; `a.gravity` changes it later.
 
 ### One step per frame
 
@@ -40,7 +44,6 @@ Set its speed; WA does the rest.
 ```lua
 wa.actors.spawn{
   sprite = "sprites/bee.png", x = x, y = y,
-  gravity = false,
   body = { shape = "sprites/bee_mask.png", hits = { land = true, worms = true } },
   on = {
     frame = function(a)
@@ -57,6 +60,12 @@ wa.actors.spawn{
 - `body.hit_by` is what may hit it: blasts, fire, arrows and so on.
 - `body.shape` is its outline: an image path in the mod, `"worm"` (default),
   `"missile"`, or `"sprite"`.
+- `body.layer` is `"object"` (default: guns, fires and missiles treat it as
+  an oil drum) or `"missile"`.
+- `body.mask = true` stamps its outline into the land each frame, so worms
+  stand on it and the ninja rope catches it; `{ worms, land, weapons,
+  actors, rope }` names the parts.
+- Without a `body`, nothing collides with the actor or hits it.
 - To jump an actor WA moves to another place, use `a:warp{ x, y, vx, vy }`
   rather than writing `a.x`, `a.y`: it also resets WA's "at rest" state, so
   the actor isn't drawn sliding across.
@@ -67,15 +76,15 @@ Three tools, for three questions:
 
 | Question | Tool |
 |---|---|
-| My actor ran into something: what, from which side, how fast? | `on.bump` |
-| Something moving ran into me: a missile, a worm, a rolling ball | `on.contact` |
+| My actor ran into something: what, from which side, how fast? | `on.contact` |
+| Something moving ran into me: a missile, a worm, a rolling ball | `on.touched` |
 | Would I fit at this spot, before I go there? | `a:fits(x, y)` |
 
-### `on.bump`
+### `on.contact`
 
 ```lua
 on = {
-  bump = function(a, ev)
+  contact = function(a, ev)
     -- ev.other              "land", or the worm / object / actor it ran into
     -- ev.nx, ev.ny          the side WA reported, pointing away from it
     -- ev.surface_nx, _ny    on a land floor only: the floor's slope, from WA
@@ -89,13 +98,13 @@ on = {
 ```
 
 - You get one event per obstacle per frame, after WA has moved everything.
-- WA's response is already done when `bump` runs. To do something else, set
+- WA's response is already done when `contact` runs. To do something else, set
   `a.vx`, `a.vy`: that is the speed WA moves it with next frame.
 - An actor that keeps pushing against something (resting on a floor, sliding
   along a wall) bumps it every frame. `ev.first` tells a new bump from a
   continuing one.
-- `on.bump` needs an actor that collides with something (`body.hits`); an
-  actor WA doesn't move never bumps, and spawning one with `bump` is an error.
+- `on.contact` needs an actor that collides with something (`body.hits`); an
+  actor WA doesn't move never bumps, and spawning one with `contact` is an error.
 
 **The side and the slope.** WA moves a body one axis at a time, sideways
 then up or down, and bounces it on the axis it was stopped on. So `ev.nx`,
@@ -112,7 +121,7 @@ A ball that bounces off everything at a steady speed, using the slope where
 there is one:
 
 ```lua
-bump = function(a, ev)
+contact = function(a, ev)
   local nx, ny = ev.nx, ev.ny
   if ev.surface_nx then nx, ny = ev.surface_nx, ev.surface_ny end
   local d = ev.vx * nx + ev.vy * ny
@@ -124,9 +133,9 @@ bump = function(a, ev)
 end,
 ```
 
-### `on.contact`
+### `on.touched`
 
-`on = { contact = function(a, ev) ... end }` is the other direction:
+`on = { touched = function(a, ev) ... end }` is the other direction:
 something WA moved ran into this actor. `ev.other` is what hit it (a missile
 that exploded on it arrives as a snapshot with `alive = false`), `ev.vx`,
 `ev.vy` its speed going in, `ev.nx`, `ev.ny` the side. WA applies no push for
@@ -162,7 +171,7 @@ Every machine in an online match runs the whole game itself; only the
 players' inputs travel. So everything that changes the game must come out
 the same on every machine:
 
-- `frame`, `bump`, `contact` and `hit` are simulation callbacks: they run on
+- `frame`, `contact`, `touched` and `hit` are simulation callbacks: they run on
   every machine in the same order, and may change speed, position, health.
 - `wa.on.draw` and `wa.on.hud` run on each machine for itself, to draw: they
   only read the game.

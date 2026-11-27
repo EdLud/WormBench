@@ -112,7 +112,7 @@ Fields below belong under `missile` unless another table is named.
 | `fire.spread_delay_ms` | With `burst = "fire"`, delay before a flame produces the next spreading generation. Native fire checks this in 20 ms steps. |
 | `fire.burn_time_ms` | With `burst = "fire"`, nominal settled burn time for ordinary fire. Falling pauses natural decay, and native randomness can shorten the burn. Persistent native fire modes consume this reserve on hits instead. This isn't an exact lifetime from creation; `0` doesn't mean unlimited. |
 | `fire.spread_generations` | With `burst = "fire"`, nonnegative whole number of successive spreading generations. `0` retains only the initial flames. Each generation may branch into several flames; this isn't a flame count. |
-| `fire.decay_mode` | With `burst = "fire"`, `"resting"` consumes the burn reserve while settled; `"on_hit"` consumes it through hits instead. Water and other native extinguishing rules still apply. |
+| `fire.decay_mode` | With `burst = "fire"`, `"instant"` consumes the burn reserve from the moment the fire settles; `"at_turn_start"` spends a set amount of it at the start of each turn and on each of its hits. Water and other native extinguishing rules still apply. |
 | `explosion.power` | Explosion damage and radius together, as a WA weapon's power. |
 | `explosion.push_pct` | Knockback percentage. Zero removes push while retaining explosion power. |
 | `explosion.bias`, `explosion.variation` | Native explosion bias and damage variation. |
@@ -187,9 +187,6 @@ Don't combine `worms` with its four constituent ordinary groups in one table.
 Unmapped imported bits can be preserved with `extra_bits`; shipped PX masks
 need no such values.
 
-Older ports may use the numeric `collides`, `bounce.flags`,
-`roam.movement_flags`, `roam.explode_flags` and `gun.hit_flags`; they still
-work, but not together with the named field or with `impact_particles`.
 `wa.weapons.data` reads `mine.detects` back as a number.
 
 ### Clusters
@@ -225,14 +222,16 @@ the fire names. Inherit untested native decay-mode numbers from the base.
 | `strike` | `count`: dropped munitions. `spacing`: native drop-spacing parameter. `plane`: native plane sprite. `munition`: `"mines"` or `"missiles"`. |
 | `strike` | `munition_speed`: initial horizontal speed of dropped munitions along the plane's direction, in pixels/frame, in steps of `0.01`. Doesn't set the aircraft's speed. `plane_sound`: native aircraft sound ID; `0` disables it. |
 | `fire_punch` | `damage`: hit damage. `knockback`: victim's hit strength in pixels/frame, in steps of `0.1`, before native hit modifiers. Applies only to Fire Punch behaviour. |
-| `drill` | `duration_ms`: Pneumatic Drill duration. |
+| `drill` | `duration_ms`: Pneumatic Drill duration. `damage`: damage of each hit. |
+| `blow_torch` | `damage`: damage of each hit. Applies only to BlowTorch behaviour (`fires.subtype = 11`). |
+| `dragon_ball` | `damage`: the ball's hit damage. Applies only to Dragon Ball behaviour (`fires.subtype = 3`). |
 | `jet_pack` | `fuel`: native Jet Pack fuel setting, `0` to `255`; `0` means unlimited. |
 | `parachute` | `wind_pct`: wind response percentage; `100` is normal and `0` ignores wind. This doesn't change arrow-key steering or initial momentum. |
 
 ## Sprites and other declarations
 
 Record sprite fields accept stock sprite names or numeric IDs. Bundle artwork
-uses the separate declarations `sprite`, `cluster.sprite`, `plane`,
+uses the separate declarations `sprite`, `cluster_sprite`, `plane`,
 `sheep_sprites`, `worm_sprites` and `hold`. For example, a bundle's flight
 sheet goes in top-level `sprite`, rather than `missile.sprite`.
 
@@ -310,7 +309,7 @@ wa.weapons.replace{
 
 `projectile` is an internal launch record, with no panel entry or separate ammo.
 It requires a stock `copy_from` that builds a missile. Its `fires`, `missile`,
-`clusters`, `sprite`, `cluster`, `sprites` and `params` use the usual declaration
+`clusters`, `sprite`, `cluster_sprite`, `sprites` and `params` use the usual declaration
 format. Handling and callbacks stay on the main weapon. Nested projectiles are
 not supported. `wa.weapons.launch` uses this record automatically and applies
 its per-shot overrides to a private copy; ordinary weapons keep their existing
