@@ -1,0 +1,3308 @@
+# Project X's weapons, ported to WormBench, as a component bundle: each
+# weapon is a component any profile can place (the loader's Manage Weapon
+# Panel lists them), credited to its Project X authors. A weapon goes on any panel place.
+#
+# Highlander's rules are the hl.rules add-on (scheme/). Each PX weapon
+# suggests its PX pool for them; a profile may set any weapon's. The profiles
+# in profiles/ are copied into WormBench/Profiles when the loader installs
+# this bundle. Where PX
+# uses WA's own weapon unchanged (Teleport, Fast Walk, Crate Spy, Crate
+# Shower, Flame Thrower) they place the stock one.
+#
+# Development tests and their match setup live outside this pack, in tests/px/.
+id = "px.ports"
+name = "Project X ports"
+version = "0.20.97"
+author = "Project X authors"
+api_version = 5
+format_version = 2
+# Kill the King was its own pack until 0.17.0, Buffalo of Lies until 0.20.75:
+# installing this one retires them.
+replaces = ["example.kill_the_king", "px.buffalo"]
+dependencies = ["wf.sdk"]
+
+# Joined frame folders retain their 15 fps looping playback.
+
+[sprites."sprites/attack_helicopter/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/attack_helicopter/casing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/attack_helicopter/empty.png"]
+frames = 2
+fps = 15
+play = "loop"
+
+[sprites."sprites/attack_helicopter/gun.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/balloon/balloon.png"]
+fps = 15
+play = "pingpong"
+
+[sprites."sprites/balloon/basket.png"]
+fps = 15
+play = "pingpong"
+
+[sprites."sprites/banana_express/plane.png"]
+frames = 1
+fps = 15
+play = "loop"
+
+[sprites."sprites/blast_zone/bullet.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/blast_zone/exp.png"]
+frames = 10
+fps = 15
+play = "loop"
+
+[sprites."sprites/blast_zone/hold.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/blaster_worm/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/blaster_worm/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/blaster_worm/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/blaster_worm/cluster.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/blaster_worm/cluster_trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/blaster_worm/draw.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/blaster_worm/drawd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/blaster_worm/drawu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/blaster_worm/flight.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/bunker_buster/digging.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/bunker_buster/idle.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/burst_rifle/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/burst_rifle/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/burst_rifle/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/burst_rifle/draw.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/burst_rifle/drawd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/burst_rifle/drawu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/burst_rifle/fire.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/burst_rifle/fired.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/burst_rifle/fireu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/electric_grenade/explosion.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/electric_grenade/tazed1.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/electric_grenade/tazed2.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/electromagnet/magnetsparks.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/electromagnet/wmag2lnk.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/electromagnet/wmag2lnkd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/electromagnet/wmag2lnku.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/electromagnet/wmaglnk.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/electromagnet/wmaglnkd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/electromagnet/wmaglnku.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/ferret/walk.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/ghost_sheep/ghstshp1.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/ghost_sheep/ghstshp2.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/gravler/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/gravler/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/gravler/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/gravler/draw.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/gravler/drawd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/gravler/drawu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/gravler/gravlerdiga.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/gravler/gravlerdigb.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/gravler/gravlerdigc.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/gravler/gravlerdive.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hang_glider/glider.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hang_glider/pack.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/health_zone/bullet.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/health_zone/hold.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/spot_hider/pulse.png"]
+frames = 10
+fps = 15
+play = "loop"
+
+[sprites."sprites/zone_fx/mcrate0.png"]
+frames = 61
+fps = 20
+play = "loop"
+
+[sprites."sprites/zone_fx/fallout.png"]
+frames = 32
+fps = 20
+play = "loop"
+
+[sprites."sprites/zone_fx/wormhit2.png"]
+frames = 10
+fps = 20
+play = "loop"
+
+[sprites."sprites/zone_fx/glow.png"]
+frames = 1
+fps = 15
+play = "loop"
+
+[sprites."sprites/helicopter/flying.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/helicopter/jumpin.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/helicopter/dash_bar.png"]
+frames = 1
+
+[sprites."sprites/helicopter/dash_frame.png"]
+frames = 1
+
+[sprites."sprites/helicopter/dash_glow.png"]
+frames = 1
+
+[sprites."sprites/helicopter/dash_line.png"]
+frames = 1
+
+[sprites."sprites/homing_fire_cluster/bullet.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/homing_fire_cluster/clustlet.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hellish/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hellish/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hellish/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hellish/draw.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hellish/drawd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hellish/drawu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hellish/grenade.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/homing_air_strike/flight.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/igniter/flight.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/javelin/flight.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/javelin/hold.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/javelin/stamp.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/jump/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/jump/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/jump/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/kamikaze_rocket/fly.png"]
+frames = 5
+fps = 15
+play = "loop"
+
+[sprites."sprites/kamikaze_rocket/launch.png"]
+frames = 11
+fps = 15
+play = "loop"
+
+[sprites."sprites/kamikaze_rocket/take_out.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/laser_gun/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/laser_gun/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/laser_gun/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/laser_gun/draw.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/laser_gun/drawd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/laser_gun/drawu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/mortar_strike/cluster.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/mortar_strike/cluster_trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/mortar_strike/trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/ninja_star/hold.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/ninja_star/stamp.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/pogo_sheep/cluster.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/pogo_sheep/flight.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/portal_gun/portal_ball.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/portal_gun/portal_black_mask.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/portal_gun/portal_gun_down.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/portal_gun/portal_gun_link_down.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/portal_gun/portal_gun_link_normal.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/portal_gun/portal_gun_link_up.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/portal_gun/portal_gun_normal.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/portal_gun/portal_gun_up.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/px_hold/chilli_bomb.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/px_hold/igniter.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/px_hold/nuke_rocket.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/px_hold/shadow_bolt.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/px_hold/sniper_rifle.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/px_hold/sticky_bomb.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/remote_roller/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/remote_roller/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/remote_roller/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/remote_roller/draw.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/remote_roller/drawd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/remote_roller/drawu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/remote_roller/flight.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/security_grenade/bullet.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/pyro_turrets/turrets.png"]
+frames = 28
+fps = 1
+play = "loop"
+
+[sprites."sprites/pyro_turrets/ammo_petrol.png"]
+frames = 1
+fps = 1
+play = "loop"
+
+[sprites."sprites/pyro_turrets/ammo_flame.png"]
+frames = 1
+fps = 1
+play = "loop"
+
+[sprites."sprites/sentry_gun/casing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_ui/digits.png"]
+frames = 14
+fps = 1
+play = "loop"
+
+[sprites."sprites/sentry_gun/equip.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/equip_housing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/equipd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/equipd_housing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/equipu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/equipu_housing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/turret_base.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/turret_flare.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/turret_head.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/unequip.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/unequip_housing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/unequipd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/unequipd_housing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/unequipu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_gun/unequipu_housing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/equip.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/equip_housing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/equipd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/equipd_housing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/equipu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/equipu_housing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/turret_barrel.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/turret_base.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/turret_head.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/unequip.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/unequip_housing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/unequipd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/unequipd_housing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/unequipu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sentry_laser/unequipu_housing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/shadow_bolt/bolt.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/shadow_bolt/trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/smart_bomb/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/smart_bomb/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/smart_bomb/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/smart_bomb/cluster.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/smart_bomb/cluster_homing.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/smart_bomb/draw.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/smart_bomb/drawd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/smart_bomb/drawu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/smart_bomb/flight.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/smart_bomb/trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sniper_rifle/fire.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sniper_rifle/fired.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sniper_rifle/fireu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sniper_rifle/flash.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/sniper_rifle/laser.png"]
+frames = 1
+fps = 15
+play = "loop"
+
+[sprites."sprites/sticky_bomb/bomb.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_bunker_buster/digging.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_bunker_buster/idle.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_gravedigger/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_gravedigger/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_gravedigger/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_gravedigger/cluster.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_gravedigger/draw.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_gravedigger/drawd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_gravedigger/drawu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_gravedigger/flight.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/swim_suit/float.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/swim_suit/ring.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/swim_suit/swim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/thumper_nade/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/thumper_nade/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/thumper_nade/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/thumper_nade/cluster.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/thumper_nade/cluster_trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/thumper_nade/draw.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/thumper_nade/drawd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/thumper_nade/drawu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/thumper_nade/flight.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/thumper_nade/trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/weapon_crate/put_away.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/weapon_crate/put_awayd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/weapon_crate/put_awayu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/weapon_crate/take_out.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/weapon_crate/take_outd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/weapon_crate/take_outu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/windy_cluster/cluster.png"]
+fps = 15
+play = "loop"
+[[components]]
+
+id = "hl.rules"
+type = "feature"
+name = "Highlander rules"
+credits = "from Highlander 0rang3 1.1"
+description = "Each worm is dealt one weapon from each of three pools, may use each once a turn, and takes what a worm it kills carried."
+entry = "components/highlander.lua"
+before_weapons = true
+
+[[components.weapon_options]]
+key = "pool"
+type = "choice"
+choices = ["offensive", "second", "movement", "not dealt"]
+default = "not dealt"
+label = "Highlander pool"
+description = "Each worm is dealt one weapon from each pool."
+
+[[components.weapon_options]]
+key = "cavern"
+type = "bool"
+default = true
+label = "Dealt on cavern maps"
+description = "Off for weapons that come from the sky."
+
+[sprites."sprites/specialists/glow.png"]
+frames = 1
+[[components]]
+
+id = "specialists.rules"
+type = "feature"
+name = "Specialists rules"
+description = "Five worm classes with their own weapons and cooldowns, the Medic aura and the Soldier who returns once as a zombie, for five worms per team and 100 HP."
+entry = "components/specialists.lua"
+
+[sprites."sprites/random_race/rope_race.png"]
+frames = 1
+
+[sprites."sprites/random_race/park_race.png"]
+frames = 1
+
+[sprites."sprites/random_race/wing_race.png"]
+frames = 1
+
+[sprites."sprites/random_race/port_race.png"]
+frames = 1
+
+[sprites."sprites/random_race/heli_race.png"]
+frames = 1
+[[components]]
+
+id = "random_race.rules"
+type = "feature"
+name = "Random Race"
+authors = ["0rang3"]
+description = "Each time the first team's turn comes round, a race is chosen at random and every team gets only its weapons: Parkour with Jump and Low Gravity, or Portal Gun, both with Anti Fall Damage; Wings; Helicopter; or Ninja Rope with Parachute."
+entry = "components/random_race.lua"
+[[components]]
+
+id = "team17.rules"
+type = "feature"
+name = "Team17 rules"
+authors = ["0rang3"]
+credits = "crate scripts by Ted feat. Buxnaman, edited by m4d-c4t"
+description = "A kill gives the turn's worm 30 HP and drops a weapon and a utility crate; a health crate drops every 6 to 8 minutes of turns. Firing the Fire Punch, Dragon Ball or Prod locks those and the Super Tele for the rest of the turn, as do the BlowTorch, Pneumatic Drill and Girder."
+entry = "components/team17.lua"
+[[components]]
+
+id = "ktk.control"
+type = "feature"
+name = "Kill the King"
+authors = ["Danylo"]
+credits = "improved by 0rang3, ported by reddaz"
+description = "The attackers must destroy the defenders' king before the timer runs out."
+entry = "components/kill_the_king.lua"
+
+[[components.options]]
+key = "kings"
+type = "choice"
+choices = ["one", "two"]
+default = "one"
+label = "Number of kings"
+description = "One or two kings; with two, either king falling wins for the attackers."
+
+[[components.options]]
+key = "attack_time_seconds"
+type = "int"
+min = 10
+max = 3600
+default = 300
+label = "Attack time (seconds)"
+description = "Timer for the attackers. 300 = 5:00."
+
+[[components.options]]
+key = "timer_mode"
+type = "choice"
+choices = ["attack_only", "defend_and_compensate"]
+default = "attack_only"
+label = "Timer mode"
+description = "Attack only: the timer drains on attacker turns. Defend and compensate also adds time back on defender turns."
+
+[[components.options]]
+key = "defender_gain_ms"
+type = "int"
+min = 0
+max = 100
+default = 5
+label = "Defender time gain (ms/frame)"
+description = "Time the defenders get back per frame of their turns (Defend and compensate only)."
+
+[[components.options]]
+key = "attackers_team"
+type = "choice"
+choices = ["red", "blue", "green", "yellow", "purple", "cyan"]
+default = "red"
+label = "Attackers' team"
+description = "WA team colour that attacks."
+
+[[components.options]]
+key = "defenders_team"
+type = "choice"
+choices = ["red", "blue", "green", "yellow", "purple", "cyan"]
+default = "blue"
+label = "Defenders' team"
+description = "WA team colour that owns both kings."
+
+[[components.options]]
+key = "king1_x"
+type = "int"
+min = 0
+max = 10000
+default = 106
+label = "King 1 X (top-left)"
+description = "Map pixel X of the top-left corner of King 1."
+
+[[components.options]]
+key = "king1_y"
+type = "int"
+min = 0
+max = 10000
+default = 829
+label = "King 1 Y (top-left)"
+description = "Map pixel Y of the top-left corner of King 1."
+
+[[components.options]]
+key = "king1_destroy_percent"
+type = "int"
+min = 1
+max = 100
+default = 70
+label = "King 1 destruction threshold (%)"
+description = "Solid terrain that must be destroyed. 70 leaves 30% HP; 100 needs full destruction."
+
+[[components.options]]
+key = "king2_x"
+type = "int"
+min = 0
+max = 10000
+default = 1420
+label = "King 2 X (top-left)"
+description = "Map pixel X of the top-left corner of King 2. Used when kings = two."
+
+[[components.options]]
+key = "king2_y"
+type = "int"
+min = 0
+max = 10000
+default = 300
+label = "King 2 Y (top-left)"
+description = "Map pixel Y of the top-left corner of King 2. Used when kings = two."
+
+[[components.options]]
+key = "king2_destroy_percent"
+type = "int"
+min = 1
+max = 100
+default = 70
+label = "King 2 destruction threshold (%)"
+description = "Solid terrain that must be destroyed. 70 leaves 30% HP; 100 needs full destruction."
+
+[[components.options]]
+key = "show_timer"
+type = "bool"
+default = true
+label = "Show attack timer"
+description = "Draw the remaining attack time on the HUD."
+
+[[components.options]]
+key = "show_king_hp"
+type = "bool"
+default = true
+label = "Show king HP"
+description = "Draw each king's remaining HP on the HUD."
+[[components]]
+
+id = "px.oil_drums"
+type = "feature"
+name = "Project X oil drums"
+authors = ["Entuser"]
+credits = "sprites and skunk drum by Pablo, cluster, icy and electric drums by rafa``2, fitted to Highlander by 0rang3"
+description = "Skunk, cluster, icy and electric oil drums from Project X."
+entry = "components/oil_drums.lua"
+before_weapons = true
+# The nuke drum fires the Nuke Rocket's rockets, placed or not.
+launches = ["px.nuke_rocket"]
+[[components]]
+
+id = "px.hazardous_sentries"
+type = "feature"
+name = "Hazardous Sentries"
+credits = "Sentry Gun by _Kilburn, Sentry Laser by rafa``2 from code by _Kilburn, turrets by PyroMan"
+description = "Places neutral grey sentries and turrets on the map at the start of each round; they fire at every team."
+entry = "components/hazardous_sentries.lua"
+before_weapons = true
+
+[[components.options]]
+key = "density"
+type = "int"
+default = 40
+min = 0
+max = 100
+zero = "off"
+label = "Density"
+description = "How many are placed at the start of each round, for the map's size. At 50, a normal 1920 by 696 map gets 8, a 2280 by 1168 one 11 and a 7680 by 4176 one 38. Each needs a 50 by 50 pixel box on the ground, so a crowded map may have room for fewer."
+
+[[components.options]]
+key = "sentry_gun_share"
+type = "int"
+default = 20
+min = 0
+max = 100
+shares = "hazards"
+label = "Sentry Guns (%)"
+description = "How likely each one placed is to be each kind. The six add up to 100."
+
+[[components.options]]
+key = "sentry_laser_share"
+type = "int"
+default = 20
+min = 0
+max = 100
+shares = "hazards"
+label = "Sentry Lasers (%)"
+description = ""
+
+[[components.options]]
+key = "petrol_turret_share"
+type = "int"
+default = 15
+min = 0
+max = 100
+shares = "hazards"
+label = "Petrol Turrets (%)"
+description = ""
+
+[[components.options]]
+key = "flame_turret_share"
+type = "int"
+default = 15
+min = 0
+max = 100
+shares = "hazards"
+label = "Flame Turrets (%)"
+description = ""
+
+[[components.options]]
+key = "mine_turret_share"
+type = "int"
+default = 15
+min = 0
+max = 100
+shares = "hazards"
+label = "Mine Turrets (%)"
+description = ""
+
+[[components.options]]
+key = "auto_ballista_share"
+type = "int"
+default = 15
+min = 0
+max = 100
+shares = "hazards"
+label = "Auto Ballistas (%)"
+description = ""
+
+[[components.options]]
+key = "tracking_pct"
+type = "int"
+default = 100
+min = 100
+max = 1000
+label = "Tracking speed (%)"
+description = "How fast every sentry turns toward a target and how soon it starts firing, as a percentage of normal; raise it against fast targets such as helicopters."
+
+[[components.options]]
+key = "aim_ahead"
+type = "bool"
+default = false
+label = "Aim ahead"
+description = "Turrets aim where a moving target will be when the shot lands, not where it is now."
+[[components]]
+
+id = "px.double_bazooka"
+type = "weapon"
+name = "Double Bazooka"
+authors = ["PyroMan"]
+description = "A bazooka with a second shell."
+entry = "components/weapon.lua"
+icon = "sprites/double_bazooka/double_bazooka_ico.png"
+default_position = { row = "F1", column = 1 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.igniter"
+type = "weapon"
+name = "Igniter"
+description = "Fires bullets that burst into fire where they hit."
+entry = "components/weapon.lua"
+icon = "sprites/igniter/igniter_ico.png"
+default_position = { row = "F1", column = 2 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.s_m_a_r_t_bomb"
+type = "weapon"
+name = "S.M.A.R.T Bomb"
+authors = ["Curtis"]
+description = "A mortar whose clusters home in on worms."
+entry = "components/weapon.lua"
+icon = "sprites/smart_bomb/smart_ico.png"
+default_position = { row = "F1", column = 3 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+
+[[components.options]]
+key = "homes_like"
+type = "choice"
+choices = ["magic_bullet", "pigeon", "homing"]
+default = "magic_bullet"
+label = "Homes like"
+description = "How the clusters home. magic_bullet or pigeon: as the stock Magic Bullet or Homing Pigeon, around land. homing: as in Project X, straight at the worm."
+[[components]]
+
+id = "px.blaster_worm"
+type = "weapon"
+name = "Blaster Worm"
+authors = ["Curtis"]
+description = "Bazooka with gory effects."
+entry = "components/weapon.lua"
+icon = "sprites/blaster_worm/bworm_ico.png"
+default_position = { row = "F1", column = 4 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.burning_sheep_launcher"
+type = "weapon"
+name = "Burning Sheep Launcher"
+authors = ["StepS"]
+description = "Launch a burning sheep."
+entry = "components/weapon.lua"
+icon = "sprites/launchers/burning_sheep_launcher_ico.png"
+default_position = { row = "F1", column = 5 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.sticky_bomb"
+type = "weapon"
+name = "Sticky Bomb"
+authors = ["Twicken"]
+description = "A grenade that sticks where it lands."
+entry = "components/weapon.lua"
+icon = "sprites/sticky_bomb/sbico.png"
+default_position = { row = "F2", column = 1 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.windy_cluster"
+type = "weapon"
+name = "Windy Cluster"
+authors = ["Curtis"]
+description = "A cluster bomb whose clusters drift with the wind."
+entry = "components/weapon.lua"
+icon = "sprites/windy_cluster/ico_windyc.png"
+default_position = { row = "F2", column = 2 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.super_gravedigger"
+type = "weapon"
+name = "Super Gravedigger"
+authors = ["Curtis"]
+description = "A banana bomb that bursts on impact into clusters that skip along the ground before blowing up."
+entry = "components/weapon.lua"
+icon = "sprites/super_gravedigger/sgrave_ico.png"
+default_position = { row = "F2", column = 3 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.thumper_nade"
+type = "weapon"
+name = "Thumper Nade"
+authors = ["Curtis"]
+description = "A heavy grenade that bounces twice, then bursts into clusters with a hard push."
+entry = "components/weapon.lua"
+icon = "sprites/thumper_nade/thumpern_ico.png"
+default_position = { row = "F2", column = 4 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.electric_grenade"
+type = "weapon"
+name = "Electric Grenade"
+authors = ["reddaz"]
+description = "A grenade whose blast is followed by a chaining electric arc."
+entry = "components/weapon.lua"
+icon = "sprites/electric_grenade/icon.png"
+default_position = { row = "F2", column = 5 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.real_shotgun"
+type = "weapon"
+name = "Real Shotgun"
+description = "Fires five pellets per shot."
+entry = "components/weapon.lua"
+icon = "sprites/real_shotgun/real_shotgun_ico.png"
+default_position = { row = "F3", column = 1 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+[[components]]
+
+id = "px.sniper_rifle"
+type = "weapon"
+name = "Sniper Rifle"
+authors = ["Twicken"]
+credits = "laser sight by Zed"
+description = "Fires 3 precise shots with a laser sight."
+entry = "components/weapon.lua"
+icon = "sprites/sniper_rifle/srico.png"
+default_position = { row = "F3", column = 2 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+[[components]]
+
+id = "px.laser_gun"
+type = "weapon"
+name = "Laser Gun"
+authors = ["_Kilburn"]
+description = "Fires a beam that pushes worms and cuts terrain."
+entry = "components/weapon.lua"
+icon = "sprites/laser_gun/ico_lasergun.png"
+default_position = { row = "F3", column = 3 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+[[components]]
+
+id = "px.burst_rifle"
+type = "weapon"
+name = "Burst Rifle"
+authors = ["Curtis"]
+description = "A minigun that fires in bursts."
+entry = "components/weapon.lua"
+icon = "sprites/burst_rifle/ico_burstr.png"
+default_position = { row = "F3", column = 4 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+[[components]]
+
+id = "px.shadow_bolt"
+type = "weapon"
+name = "Shadow-Bolt"
+authors = ["Curtis"]
+description = "A non-terrain blocked 2 shot exploding bolt."
+entry = "components/weapon.lua"
+icon = "sprites/shadow_bolt/ico_shadowb.png"
+default_position = { row = "F3", column = 5 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+[[components]]
+
+id = "px.fire_jump"
+type = "weapon"
+name = "Fire Jump"
+credits = "new icon by 0rang3"
+description = "Fire Punch with a bigger jump."
+entry = "components/weapon.lua"
+icon = "sprites/fire_jump/fire_jump_ico.png"
+default_position = { row = "F4", column = 1 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+[[components]]
+
+id = "px.sentry_laser"
+type = "weapon"
+name = "Sentry Laser"
+authors = ["rafa``2"]
+credits = "from code by _Kilburn"
+description = "Place a turret that shoots down missiles, mines and bowling balls of other coalitions with a laser."
+entry = "components/weapon.lua"
+icon = "sprites/sentry_laser/icon.png"
+default_position = { row = "F4", column = 2 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+
+[[components.options]]
+key = "health"
+type = "int"
+min = 1
+max = 500
+default = 35
+label = "Health"
+description = "Damage the sentry takes before it's destroyed."
+
+[[components.options]]
+key = "tracking_pct"
+type = "int"
+default = 100
+min = 100
+max = 1000
+label = "Tracking speed (%)"
+description = "How fast it turns toward a target and how soon it starts firing, as a percentage of normal; raise it against fast targets such as helicopters."
+[[components]]
+
+id = "px.sentry_gun"
+type = "weapon"
+name = "Sentry Gun"
+authors = ["_Kilburn"]
+description = "Place a turret that fires at moving enemy worms within 360 pixels."
+entry = "components/weapon.lua"
+icon = "sprites/sentry_gun/icon.png"
+default_position = { row = "F4", column = 3 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+
+[[components.options]]
+key = "health"
+type = "int"
+min = 1
+max = 500
+default = 50
+label = "Health"
+description = "Damage the sentry takes before it's destroyed."
+
+[[components.options]]
+key = "ammo"
+type = "int"
+min = 1
+max = 1000
+default = 20
+label = "Ammo per turn"
+description = "Rounds available to each sentry, refilled at the start of every turn."
+
+[[components.options]]
+key = "damage"
+type = "int"
+min = 0
+max = 1000
+default = 2
+label = "Damage per shot"
+description = "Damage dealt by each sentry round. Zero allows push without damage."
+
+[[components.options]]
+key = "push_pct"
+type = "int"
+min = 0
+max = 1000
+default = 100
+label = "Push (%)"
+description = "Bullet knockback relative to normal sentry rounds. 100 keeps normal push; 0 disables it."
+
+[[components.options]]
+key = "tracking_pct"
+type = "int"
+default = 100
+min = 100
+max = 1000
+label = "Tracking speed (%)"
+description = "How fast it turns toward a target and how soon it starts firing, as a percentage of normal; raise it against fast targets such as helicopters."
+[[components]]
+
+id = "px.kamikaze_rocket"
+type = "weapon"
+name = "Kamikaze Rocket"
+authors = ["Pablo"]
+credits = "updated by rafa``2"
+description = "Ctrl + Space turns the worm into a steerable rocket for four seconds, then it blows up."
+entry = "components/weapon.lua"
+icon = "sprites/kamikaze_rocket/icon.png"
+default_position = { row = "F4", column = 4 }
+[[components]]
+
+id = "px.javelin"
+type = "weapon"
+name = "Javelin"
+authors = ["Zed", "rafa``2"]
+description = "A thrown javelin that sticks in the land as terrain."
+entry = "components/weapon.lua"
+icon = "sprites/javelin/icon.png"
+default_position = { row = "F4", column = 5 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+[[components]]
+
+id = "px.petrol_turret"
+type = "weapon"
+name = "Petrol Turret"
+authors = ["PyroMan"]
+description = "Place a turret that fires Petrol Bombs."
+entry = "components/weapon.lua"
+icon = "sprites/pyro_turrets/petrol_icon.png"
+default_position = { row = "F4", column = 6 }
+
+[[components.options]]
+key = "health"
+type = "int"
+min = 1
+max = 500
+default = 50
+label = "Health"
+description = "Damage the turret takes before it's destroyed."
+
+[[components.options]]
+key = "ammo"
+type = "int"
+min = 1
+max = 100
+default = 6
+label = "Ammo per turn"
+description = "Shots the turret fires each turn."
+
+[[components.options]]
+key = "fire_rate"
+type = "int"
+min = 20
+max = 10000
+default = 400
+label = "Fire rate (ms)"
+description = "Milliseconds between the turret's first two shots each turn."
+
+[[components.options]]
+key = "fire_increase_pct"
+type = "int"
+min = 0
+max = 100
+default = 12
+label = "Fire increase (%)"
+description = "How much longer each wait between shots is than the last, in percent."
+
+[[components.options]]
+key = "tracking_pct"
+type = "int"
+default = 100
+min = 100
+max = 1000
+label = "Tracking speed (%)"
+description = "How fast it turns toward a target and how soon it starts firing, as a percentage of normal; raise it against fast targets such as helicopters."
+
+[[components.options]]
+key = "aim_ahead"
+type = "bool"
+default = false
+label = "Aim ahead"
+description = "Aims where a moving target will be when the shot lands, not where it is now."
+[[components]]
+
+id = "px.flame_turret"
+type = "weapon"
+name = "Flame Turret"
+authors = ["PyroMan"]
+description = "Place a turret that fires flames."
+entry = "components/weapon.lua"
+icon = "sprites/pyro_turrets/flame_icon.png"
+default_position = { row = "F4", column = 7 }
+
+[[components.options]]
+key = "health"
+type = "int"
+min = 1
+max = 500
+default = 50
+label = "Health"
+description = "Damage the turret takes before it's destroyed."
+
+[[components.options]]
+key = "ammo"
+type = "int"
+min = 1
+max = 100
+default = 18
+label = "Ammo per turn"
+description = "Shots the turret fires each turn."
+
+[[components.options]]
+key = "fire_rate"
+type = "int"
+min = 20
+max = 10000
+default = 400
+label = "Fire rate (ms)"
+description = "Milliseconds between the turret's first two shots each turn."
+
+[[components.options]]
+key = "fire_increase_pct"
+type = "int"
+min = 0
+max = 100
+default = 12
+label = "Fire increase (%)"
+description = "How much longer each wait between shots is than the last, in percent."
+
+[[components.options]]
+key = "tracking_pct"
+type = "int"
+default = 100
+min = 100
+max = 1000
+label = "Tracking speed (%)"
+description = "How fast it turns toward a target and how soon it starts firing, as a percentage of normal; raise it against fast targets such as helicopters."
+
+[[components.options]]
+key = "aim_ahead"
+type = "bool"
+default = false
+label = "Aim ahead"
+description = "Aims where a moving target will be when the shot lands, not where it is now."
+[[components]]
+
+id = "px.mine_turret"
+type = "weapon"
+name = "Mine Turret"
+authors = ["PyroMan"]
+description = "Place a turret that fires 0 second mines."
+entry = "components/weapon.lua"
+icon = "sprites/pyro_turrets/mine_icon.png"
+default_position = { row = "F4", column = 8 }
+
+[[components.options]]
+key = "health"
+type = "int"
+min = 1
+max = 500
+default = 50
+label = "Health"
+description = "Damage the turret takes before it's destroyed."
+
+[[components.options]]
+key = "ammo"
+type = "int"
+min = 1
+max = 100
+default = 6
+label = "Ammo per turn"
+description = "Shots the turret fires each turn."
+
+[[components.options]]
+key = "fire_rate"
+type = "int"
+min = 20
+max = 10000
+default = 400
+label = "Fire rate (ms)"
+description = "Milliseconds between the turret's first two shots each turn."
+
+[[components.options]]
+key = "fire_increase_pct"
+type = "int"
+min = 0
+max = 100
+default = 12
+label = "Fire increase (%)"
+description = "How much longer each wait between shots is than the last, in percent."
+
+[[components.options]]
+key = "tracking_pct"
+type = "int"
+default = 100
+min = 100
+max = 1000
+label = "Tracking speed (%)"
+description = "How fast it turns toward a target and how soon it starts firing, as a percentage of normal; raise it against fast targets such as helicopters."
+
+[[components.options]]
+key = "aim_ahead"
+type = "bool"
+default = false
+label = "Aim ahead"
+description = "Aims where a moving target will be when the shot lands, not where it is now."
+[[components]]
+
+id = "px.auto_ballista"
+type = "weapon"
+name = "Auto Ballista"
+authors = ["PyroMan"]
+description = "Place a turret that shoots arrows."
+entry = "components/weapon.lua"
+icon = "sprites/pyro_turrets/ballista_icon.png"
+default_position = { row = "F4", column = 9 }
+
+[[components.options]]
+key = "health"
+type = "int"
+min = 1
+max = 500
+default = 50
+label = "Health"
+description = "Damage the turret takes before it's destroyed."
+
+[[components.options]]
+key = "ammo"
+type = "int"
+min = 1
+max = 100
+default = 8
+label = "Ammo per turn"
+description = "Shots the turret fires each turn."
+
+[[components.options]]
+key = "fire_rate"
+type = "int"
+min = 20
+max = 10000
+default = 400
+label = "Fire rate (ms)"
+description = "Milliseconds between the turret's first two shots each turn."
+
+[[components.options]]
+key = "fire_increase_pct"
+type = "int"
+min = 0
+max = 100
+default = 12
+label = "Fire increase (%)"
+description = "How much longer each wait between shots is than the last, in percent."
+
+[[components.options]]
+key = "tracking_pct"
+type = "int"
+default = 100
+min = 100
+max = 1000
+label = "Tracking speed (%)"
+description = "How fast it turns toward a target and how soon it starts firing, as a percentage of normal; raise it against fast targets such as helicopters."
+
+[[components.options]]
+key = "aim_ahead"
+type = "bool"
+default = false
+label = "Aim ahead"
+description = "Aims where a moving target will be when the shot lands, not where it is now."
+[[components]]
+
+id = "px.nuke_rocket"
+type = "weapon"
+name = "Nuke Rocket"
+authors = ["PyroMan"]
+description = "Place a rocket that can carry worms and explodes into clusters."
+entry = "components/weapon.lua"
+icon = "sprites/nuke_rocket/nuke_rocket_ico.png"
+default_position = { row = "F5", column = 2 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.pogo_sheep"
+type = "weapon"
+name = "Pogo Sheep"
+authors = ["Curtis"]
+description = "A Pogo Sheep."
+entry = "components/weapon.lua"
+icon = "sprites/pogo_sheep/psheep_ico.png"
+default_position = { row = "F5", column = 3 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.ghost_sheep"
+type = "weapon"
+name = "Ghost Sheep"
+authors = ["StepS"]
+description = "A super sheep that flies through the land."
+entry = "components/weapon.lua"
+icon = "sprites/ghost_sheep/ghost_sheep_ico.png"
+default_position = { row = "F5", column = 5 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.gravler"
+type = "weapon"
+name = "Gravler"
+authors = ["Curtis"]
+description = "A charged and aimed mole that digs for a set time, then blows up."
+entry = "components/weapon.lua"
+icon = "sprites/gravler/gravler_ico.png"
+default_position = { row = "F5", column = 6 }
+
+[[components.options]]
+key = "timer"
+type = "int"
+min = 1
+max = 60
+default = 20
+label = "Timer (seconds)"
+description = "How long after it's fired the Gravler blows up."
+
+[[components.options]]
+key = "blast_power"
+type = "int"
+min = 1
+max = 100
+default = 40
+label = "Blast power (radius and damage)"
+description = "The size of the explosion: radius and damage."
+[[components]]
+
+id = "px.mortar_strike"
+type = "weapon"
+name = "Mortar Strike"
+authors = ["Curtis"]
+description = "An air strike that drops mortar shells."
+entry = "components/weapon.lua"
+icon = "sprites/mortar_strike/ico_mortarst.png"
+default_position = { row = "F6", column = 1 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+cavern = false
+[[components]]
+
+id = "px.homing_air_strike"
+type = "weapon"
+name = "Homing Air Strike"
+credits = "from Worms 2"
+description = "Click a target for a jet to drop five homing missiles on it."
+entry = "weapons/homing_air_strike.lua"
+icon = "sprites/homing_air_strike/ico_hairstrike.png"
+default_position = { row = "F6", column = 6 }
+[[components]]
+
+id = "px.submarine_attack"
+type = "weapon"
+name = "Submarine Attack"
+authors = ["rafa``2"]
+description = "Click a target for a submarine that fires twenty missiles up out of the water."
+entry = "components/weapon.lua"
+icon = "sprites/submarine_attack/icon.png"
+default_position = { row = "F6", column = 4 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+cavern = false
+[[components]]
+
+id = "px.lightning_strike"
+type = "weapon"
+name = "Lightning Strike"
+description = "A beam from the sky that heals worms, revives graves, changes turret ownership and arms mines."
+entry = "components/weapon.lua"
+icon = "sprites/lightning/icon.png"
+default_position = { row = "F6", column = 2 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+cavern = false
+
+[[components.options]]
+key = "revive_health"
+type = "int"
+min = 1
+max = 1000
+default = 10
+label = "Revived worm's health"
+description = "Health of a worm the strike revives."
+[[components]]
+
+id = "px.pigeon_strike"
+type = "weapon"
+name = "Pigeon Strike"
+authors = ["Curtis"]
+description = "Click a target; pigeons arrive."
+entry = "components/weapon.lua"
+icon = "sprites/pigeon_strike/ico_pigeonst.png"
+default_position = { row = "F6", column = 3 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+cavern = false
+[[components]]
+
+id = "px.gravler_strike"
+type = "weapon"
+name = "Gravler Strike"
+authors = ["Curtis"]
+description = "A strike of Gravlers."
+entry = "components/weapon.lua"
+icon = "sprites/gravler/gravlerst_ico.png"
+default_position = { row = "F6", column = 5 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+cavern = false
+[[components]]
+
+id = "px.super_drill"
+type = "weapon"
+name = "Super Drill"
+authors = ["StepS"]
+description = "Drill a hole twice as long as the pneumatic drill."
+entry = "components/weapon.lua"
+icon = "sprites/super_drill/ico_superdrill.png"
+default_position = { row = "F7", column = 2 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+[[components]]
+
+id = "px.electromagnet"
+type = "weapon"
+name = "Electromagnet"
+authors = ["_Kilburn"]
+description = "Place a magnet that pulls or pushes mines and missiles for four turns; press + to switch the pole."
+entry = "components/weapon.lua"
+icon = "sprites/electromagnet/ico_magnet.png"
+default_position = { row = "F7", column = 4 }
+# A profile that sets the old "Mines push the magnet" loads without it.
+deprecated_options = ["mine_push"]
+
+[components.suggests."hl.rules"]
+pool = "second"
+[[components]]
+
+id = "px.3_girder_pack"
+type = "weapon"
+name = "3 Girder Pack"
+description = "Place three girders."
+entry = "components/weapon.lua"
+icon = "girder_pack"
+default_position = { row = "F7", column = 5 }
+
+# Project X's girder restrictor (script_girder_restrictor): the cursor kept
+# within this many pixels of the worm while placing. 0: anywhere.
+[[components.options]]
+key = "placement_range"
+type = "int"
+default = 0
+min = 0
+max = 65535
+label = "Placement range (px)"
+description = ""
+data = true
+
+[components.suggests."hl.rules"]
+pool = "movement"
+[[components]]
+
+id = "px.jump"
+type = "weapon"
+name = "Jump"
+description = "Launches the firing worm."
+entry = "components/weapon.lua"
+icon = "sprites/jump/jumpic.png"
+default_position = { row = "F8", column = 1 }
+
+[components.suggests."hl.rules"]
+pool = "movement"
+[[components]]
+
+id = "px.hot_air_balloon"
+type = "weapon"
+name = "Hot Air Balloon"
+authors = ["rafa``2"]
+credits = "modified by 0rang3"
+description = "Reverse parachute."
+entry = "components/weapon.lua"
+icon = "sprites/balloon/balloon_icon.png"
+default_position = { row = "F8", column = 2 }
+[[components]]
+
+id = "px.hang_glider"
+type = "weapon"
+name = "Hang-Glider"
+authors = ["_Kilburn"]
+description = "Hang-Glider."
+entry = "components/weapon.lua"
+icon = "sprites/hang_glider/ico_glider.png"
+default_position = { row = "F8", column = 3 }
+
+[components.suggests."hl.rules"]
+pool = "movement"
+[[components]]
+
+id = "px.wings"
+type = "weapon"
+name = "Wings"
+credits = "with help from Zed"
+description = "Fly the worm in any direction with the arrow keys, free of gravity and wind."
+entry = "components/weapon.lua"
+icon = "sprites/wings/icon.png"
+default_position = { row = "F8", column = 9 }
+
+[components.suggests."hl.rules"]
+pool = "movement"
+[[components]]
+
+id = "px.super_tele"
+type = "weapon"
+name = "Super Tele"
+authors = ["StepS"]
+description = "A teleport that also works into solid land, cutting room to arrive."
+entry = "components/weapon.lua"
+icon = "sprites/super_tele/icon.png"
+default_position = { row = "F8", column = 4 }
+
+[components.suggests."hl.rules"]
+pool = "movement"
+[[components]]
+
+id = "px.portal_gun"
+type = "weapon"
+name = "Portal Gun"
+authors = ["PyroMan"]
+description = "Fire two portals; worms and objects pass from one to the other."
+entry = "components/weapon.lua"
+icon = "sprites/portal_gun/icon.png"
+default_position = { row = "F8", column = 5 }
+
+[[components.options]]
+key = "mid_air_aim"
+type = "bool"
+default = true
+label = "Mid-air aim"
+description = "While jumping or falling, a crosshair shows the aim and each arrow press moves it. Off: the shot uses the arrow keys held when Space is pressed."
+
+[components.suggests."hl.rules"]
+pool = "second"
+[[components]]
+
+id = "px.chilli_bomb"
+type = "weapon"
+name = "Chilli Bomb"
+authors = ["PyroMan"]
+description = "A super banana that bursts into five chillis, each bursting into fire."
+entry = "components/weapon.lua"
+icon = "sprites/chilli_bomb/chilli_ico.png"
+default_position = { row = "F9", column = 1 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.homing_fire_cluster"
+type = "weapon"
+name = "Homing Fire Cluster"
+authors = ["PyroMan"]
+description = "Click a target, then throw a grenade that homes on it and bursts into five clusters, each bursting into fire."
+entry = "components/weapon.lua"
+icon = "sprites/homing_fire_cluster/homing_fire_cluster_ico.png"
+default_position = { row = "F9", column = 8 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.fire_cluster_bomb"
+type = "weapon"
+name = "Fire Cluster Bomb"
+authors = ["PyroMan"]
+description = "A grenade that bursts into five clusters, each bursting into fire."
+entry = "components/weapon.lua"
+icon = "sprites/fire_cluster/fire_cluster_ico.png"
+default_position = { row = "F9", column = 9 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.digging_cluster_bomb"
+type = "weapon"
+name = "Digging Cluster Bomb"
+authors = ["PyroMan"]
+description = "A grenade that digs through land and bursts into five digging clusters, each bursting into fire."
+entry = "components/weapon.lua"
+icon = "sprites/digging_cluster/digging_cluster_ico.png"
+default_position = { row = "F10", column = 3 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.homing_digger"
+type = "weapon"
+name = "Homing Digger"
+authors = ["PyroMan"]
+credits = "digger update by reddaz"
+description = "Click a target, then throw a rocket that turns into a digger on contact and homes on the target through the land, blowing up in fire after 5 seconds or on Space."
+entry = "components/weapon.lua"
+icon = "sprites/homing_digger/homing_digger_ico.png"
+default_position = { row = "F10", column = 7 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.homing_cluster_bomb"
+type = "weapon"
+name = "Homing Cluster Bomb"
+authors = ["PyroMan"]
+credits = "cluster homing by reddaz"
+description = "Click a target, then throw a grenade whose blast throws five clusters that home on the target."
+entry = "components/weapon.lua"
+icon = "sprites/homing_cluster/homing_cluster_ico.png"
+default_position = { row = "F10", column = 8 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.ninja_bomb"
+type = "weapon"
+name = "Ninja Bomb"
+authors = ["PyroMan"]
+description = "A grenade that bursts into 21 arrows flying out in rings, each hitting for 15 damage."
+entry = "components/weapon.lua"
+icon = "sprites/ninja_bomb/ninja_bomb_ico.png"
+default_position = { row = "F5", column = 4 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.telenade"
+type = "weapon"
+name = "TeleNade"
+description = "A grenade that teleports the worm to where it goes off, with no blast."
+entry = "components/weapon.lua"
+icon = "sprites/telenade/ico_telenade.png"
+default_position = { row = "F8", column = 7 }
+[[components]]
+
+id = "px.hellish_hand_grenade"
+type = "weapon"
+name = "Hellish Hand-Grenade"
+authors = ["Twicken"]
+description = "A holy hand grenade that bursts into spreading fire."
+entry = "components/weapon.lua"
+icon = "sprites/hellish/hhh_ico.png"
+default_position = { row = "F9", column = 2 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.ferret"
+type = "weapon"
+name = "Ferret"
+authors = ["rafa``2"]
+description = "A ferret that walks the outline of the land and explodes on a worm, a drum or the water."
+entry = "components/weapon.lua"
+icon = "sprites/ferret/icon.png"
+default_position = { row = "F9", column = 4 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+cavern = false
+[[components]]
+
+id = "px.banana_express"
+type = "weapon"
+name = "Banana Express"
+description = "A plane that drops a banana."
+entry = "components/weapon.lua"
+icon = "sprites/banana_express/banana_express_ico.png"
+default_position = { row = "F9", column = 5 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+cavern = false
+[[components]]
+
+id = "px.valyrian_fire"
+type = "weapon"
+name = "Valyrian Fire"
+authors = ["rafa``2"]
+description = "Throw a petrol bomb with strong green fire."
+entry = "components/weapon.lua"
+icon = "sprites/valyrian_fire/icon.png"
+default_position = { row = "F10", column = 1 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.remote_roller"
+type = "weapon"
+name = "Remote Roller"
+authors = ["Curtis"]
+description = "Drops a roller at the worm's feet with a push of its own."
+entry = "components/weapon.lua"
+icon = "sprites/remote_roller/rroller_ico.png"
+default_position = { row = "F10", column = 2 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+
+[[components.options]]
+key = "launch_power"
+type = "int"
+min = 0
+max = 100
+default = 15
+label = "Launch power"
+description = "The push it gets when dropped, in percent of full power; 0 just drops it."
+[[components]]
+
+id = "px.bowling_ball_strike"
+type = "weapon"
+name = "Bowling Ball Strike"
+authors = ["Entuser"]
+credits = "bowling ball by _Kilburn"
+description = "Drops three bowling balls as a strike."
+entry = "components/weapon.lua"
+icon = "sprites/bowling_ball/strike_icon.png"
+default_position = { row = "F10", column = 4 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+cavern = false
+[[components]]
+
+id = "px.bowling_ball"
+type = "weapon"
+name = "Bowling Ball"
+authors = ["_Kilburn"]
+description = "Drops a bowling ball."
+entry = "components/weapon.lua"
+icon = "sprites/bowling_ball/icon.png"
+default_position = { row = "F10", column = 6 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+[[components]]
+
+id = "px.thumper_nade_strike"
+type = "weapon"
+name = "Thumper Nade Strike"
+authors = ["Curtis"]
+description = "Call a carpet bomb of Thumper Nades."
+entry = "components/weapon.lua"
+icon = "sprites/thumper_nade/thumpernst_ico.png"
+default_position = { row = "F10", column = 5 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+cavern = false
+[[components]]
+
+id = "px.cow_launcher"
+type = "weapon"
+name = "Cow Launcher"
+description = "Launch a Mad Cow."
+entry = "components/weapon.lua"
+icon = "sprites/launchers/cow_launcher_ico.png"
+default_position = { row = "F11", column = 1 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+
+[[components.options]]
+key = "charged"
+type = "bool"
+default = false
+label = "Charged"
+description = "Hold fire to set the launch power; off launches at half power."
+[[components]]
+
+id = "px.old_woman_launcher"
+type = "weapon"
+name = "Old Woman Launcher"
+description = "Launch an Old Woman."
+entry = "components/weapon.lua"
+icon = "sprites/launchers/old_woman_launcher_ico.png"
+default_position = { row = "F11", column = 2 }
+
+[components.suggests."hl.rules"]
+pool = "offensive"
+
+[[components.options]]
+key = "charged"
+type = "bool"
+default = false
+label = "Charged"
+description = "Hold fire to set the launch power; off launches at half power."
+[[components]]
+
+id = "px.crate_strike"
+type = "weapon"
+name = "Crate Strike"
+authors = ["StepS"]
+credits = "with rafa``2 and 0rang3"
+description = "Drop three crates."
+entry = "components/weapon.lua"
+icon = "sprites/crate_strike/icon.png"
+default_position = { row = "F11", column = 3 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+cavern = false
+[[components]]
+
+id = "px.reinforcement"
+type = "weapon"
+name = "Reinforcement"
+authors = ["StepS"]
+description = "Click to add a new worm to the team, with 200 health."
+entry = "components/weapon.lua"
+icon = "sprites/reinforcement/icon.png"
+default_position = { row = "F11", column = 4 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+cavern = false
+[[components]]
+
+id = "px.ice_arrow"
+type = "weapon"
+name = "Ice Arrow"
+authors = ["StepS"]
+description = "An arrow that freezes the worm it hits."
+entry = "components/weapon.lua"
+icon = "sprites/ice_arrow/icon.png"
+default_position = { row = "F11", column = 5 }
+
+[components.suggests."hl.rules"]
+pool = "second"
+[[components]]
+
+id = "px.skip_go_surrender"
+type = "weapon"
+name = "Skip Go/Surrender"
+description = "Press Space to skip the turn, or Ctrl + Space to surrender."
+entry = "components/weapon.lua"
+icon = "sprites/skip_go/icon.png"
+default_position = { row = "F12", column = 1 }
+[[components]]
+
+id = "px.wind_changer"
+type = "weapon"
+name = "Wind Changer"
+authors = ["ravander"]
+credits = "improved by 0rang3"
+description = "0 to 9 choose the force; firing sets the wind toward where the worm faces."
+entry = "components/weapon.lua"
+icon = "sprites/wind_changer/ico_windchanger.png"
+default_position = { row = "F12", column = 2 }
+[[components]]
+
+id = "px.weapon_crate"
+type = "weapon"
+name = "Weapon Crate"
+authors = ["StepS", "rafa``2"]
+credits = "with 0rang3"
+description = "Place a weapon crate in front of the worm; one per team per round."
+entry = "components/weapon.lua"
+icon = "sprites/weapon_crate/icon.png"
+default_position = { row = "F12", column = 4 }
+[[components]]
+
+id = "px.helicopter"
+type = "weapon"
+name = "Helicopter"
+credits = "sprites by raffie, improved by 0rang3"
+description = "Fly a jet pack as a helicopter: arrow keys steer, hold Shift to dash, and a fast collision crashes it."
+entry = "components/weapon.lua"
+icon = "sprites/helicopter/heli_ico.png"
+default_position = { row = "utility", column = 1 }
+
+[components.suggests."hl.rules"]
+pool = "movement"
+
+[[components.options]]
+key = "fuel"
+type = "int"
+min = 0
+max = 999
+default = 40
+zero = "infinite"
+label = "Fuel"
+description = "The helicopter's fuel; 0 is infinite, and its counter goes up with the fuel used, as WA's infinite jet pack does."
+
+[[components.options]]
+key = "acceleration"
+type = "int"
+min = 10
+max = 1000
+default = 100
+label = "Acceleration (%)"
+description = "How quickly the arrow keys bring the heli up to its top speed, as a percentage of normal; 100 gets there in about 0.2 seconds."
+
+[[components.options]]
+key = "dash_fuel"
+type = "int"
+min = 0
+max = 9999
+default = 50
+zero = "off"
+label = "Dash fuel"
+description = "Fuel for the Shift dash; 100 lasts 0.3 seconds, and 0 turns the dash off."
+
+[[components.options]]
+key = "dash_use_cost"
+type = "int"
+min = 0
+max = 50
+default = 15
+label = "Dash cost per press (%)"
+description = "How much of a full dash bar each press of Shift takes, on top of what the dash burns. A bar that runs dry turns red, and the dash waits until it's full again."
+
+[[components.options]]
+key = "dash_speed"
+type = "int"
+min = 100
+max = 10000
+default = 330
+label = "Dash speed (%)"
+description = "The top speed while dashing, as a percentage of normal flying speed, the same in every direction."
+
+[[components.options]]
+key = "dash_steer_factor"
+type = "int"
+min = 0
+max = 1000
+default = 130
+label = "Dash steering (%)"
+description = "How strongly the arrow keys steer during a dash and until the heli slows to normal speed, as a percentage of normal steering; above 100 steers harder than normal flying."
+
+[[components.options]]
+key = "dash_refill_factor"
+type = "int"
+min = 0
+max = 1000
+default = 35
+label = "Dash refill (%)"
+description = "How fast dash fuel refills between dashes, as a percentage of how fast a dash uses it."
+
+[[components.options]]
+key = "crash_speed_scale"
+type = "int"
+min = 0
+max = 1000
+default = 0
+label = "Crash scales with speed (%)"
+description = "How much a crash's explosion grows with the heli's speed: 0 keeps it the same size, 100 is full scaling."
+[[components]]
+
+id = "px.gravity_control"
+type = "weapon"
+name = "Gravity Control"
+authors = ["DannyB"]
+credits = "edited by 0rang3"
+description = "1 to 5 choose the gravity; fire to activate."
+entry = "components/weapon.lua"
+icon = "sprites/gravity_control/gravity_control_ico.png"
+default_position = { row = "utility", column = 2 }
+
+[components.suggests."hl.rules"]
+pool = "movement"
+[[components]]
+
+id = "px.swim_suit"
+type = "weapon"
+name = "Swim Suit"
+authors = ["StepS"]
+credits = "diving by PyroMan"
+description = "Swimming Worms, liked by most people."
+entry = "components/weapon.lua"
+icon = "sprites/swim_suit/ico_swimsuit.png"
+default_position = { row = "utility", column = 4 }
+
+[components.suggests."hl.rules"]
+pool = "movement"
+[[components]]
+
+id = "px.attack_helicopter"
+type = "weapon"
+name = "Attack Helicopter"
+credits = "by reddaz"
+description = "Click a target for a helicopter to strafe in from off the map and gun it down."
+entry = "weapons/attack_helicopter.lua"
+icon = "sprites/helishootico.png"
+default_position = { row = "F6", column = 4 }
+
+[[components.options]]
+key = "bullets"
+type = "int"
+min = 1
+max = 1000
+default = 17
+label = "Bullets per strafe"
+description = "How many rounds the helicopter fires before it leaves."
+[[components]]
+
+id = "px.bunker_buster"
+type = "weapon"
+name = "Bunker Buster"
+authors = ["_Kilburn"]
+credits = "ported by reddaz"
+description = "Click a target for a buster to fall, drill down through the land and blow up."
+entry = "weapons/bunker_buster.lua"
+icon = "sprites/bunker_buster/icon.png"
+default_position = { row = "F7", column = 3 }
+[[components]]
+
+id = "px.super_bunker_buster"
+type = "weapon"
+name = "Super Bunker Buster"
+authors = ["_Kilburn"]
+credits = "ported by reddaz"
+description = "Click a target for a Bunker Buster that also sprays fire and cuts sideways with five blasts."
+entry = "weapons/bunker_buster.lua"
+icon = "sprites/super_bunker_buster/icon.png"
+default_position = { row = "F7", column = 6 }
+[[components]]
+
+id = "px.double_jump"
+type = "weapon"
+name = "Double Jump"
+description = "Mid-Air Jumping."
+entry = "weapons/double_jump.lua"
+icon = "sprites/double_jump/icon.png"
+default_position = { row = "F8", column = 2 }
+[[components]]
+
+id = "px.security_grenade"
+type = "weapon"
+name = "Security Grenade"
+authors = ["PyroMan"]
+credits = "ported by reddaz"
+description = "Secure grenade."
+entry = "weapons/security_grenade.lua"
+icon = "sprites/security_grenade/icon.png"
+default_position = { row = "F2", column = 6 }
+[[components]]
+
+id = "px.ninja_star"
+type = "weapon"
+name = "Ninja Star"
+authors = ["Curtis"]
+credits = "ported by reddaz"
+description = "Throw a star that sticks in the land or hits for 10 damage."
+entry = "weapons/ninja_star.lua"
+icon = "sprites/ninja_star/icon.png"
+default_position = { row = "F2", column = 7 }
+[[components]]
+
+id = "px.health_zone"
+type = "weapon"
+name = "Health Zone"
+authors = ["PyroMan"]
+credits = "ported by reddaz"
+description = "A zone that heals the worm inside it or revives a grave; + heals, - damages."
+entry = "weapons/health_zone.lua"
+icon = "sprites/health_zone/icon.png"
+default_position = { row = "F9", column = 3 }
+
+[[components.options]]
+key = "healing_per_minute"
+type = "int"
+label = "Healing per minute"
+description = "HP restored per minute of healing a worm. 60 = 1 HP/sec; 30 = 1 HP every two seconds."
+min = 1
+max = 60000
+default = 60
+
+[[components.options]]
+key = "turns"
+type = "int"
+label = "Turns"
+description = "Number of active turns, counted from the turn after placement."
+min = 1
+max = 20
+default = 3
+[[components]]
+
+id = "px.blast_zone"
+type = "weapon"
+name = "Blast Zone"
+authors = ["PyroMan"]
+credits = "ported by reddaz"
+description = "A zone that explodes whenever a worm or object is inside it."
+entry = "weapons/blast_zone.lua"
+icon = "sprites/blast_zone/icon.png"
+default_position = { row = "F9", column = 6 }
+[[components]]
+
+id = "px.spot_hider"
+type = "weapon"
+name = "Spot Hider"
+authors = ["PyroMan"]
+credits = "ported by reddaz"
+description = "A zone that hides the spot it lands on in darkness for four turns."
+entry = "weapons/spot_hider.lua"
+icon = "sprites/spot_hider/icon.png"
+default_position = { row = "F9", column = 7 }
+
+[[components.options]]
+key = "look"
+type = "choice"
+choices = ["shadow", "mask"]
+default = "shadow"
+label = "Look"
+description = "Shadow: an opaque darkness spreading from where it lands, stopped by terrain. Mask: the flat see-through mask from Project X."
+
+[[components.options]]
+key = "hides_for"
+type = "choice"
+choices = ["everyone", "enemies"]
+default = "enemies"
+label = "Hides for"
+description = "Enemies: the shooter's side sees through the shadow at half its darkness."
+
+[[components.options]]
+key = "spread_seconds"
+type = "int"
+min = 0
+max = 60
+default = 30
+label = "Spread (seconds)"
+description = "How long the shadow takes to spread out from where the round lands to its full size."
+
+[[components.options]]
+key = "radius"
+type = "int"
+min = 10
+max = 350
+default = 125
+label = "Size (radius)"
+description = "How much the shadow hides: a circle of this radius, flowing out of pockets up to twice as far."
+[[components]]
+
+id = "px.buffalo_of_lies"
+type = "weapon"
+name = "Buffalo of Lies"
+authors = ["rafa``2"]
+credits = "ported by reddaz"
+description = "Buffalo of Lies."
+entry = "weapons/buffalo_of_lies.lua"
+icon = "sprites/buffalo/icon.png"
+default_position = { row = "F11", column = 6 }
+
+[[components.options]]
+key = "direction"
+type = "choice"
+choices = ["straight", "opposite", "random"]
+default = "straight"
+label = "After a collision"
+description = "After a collision the next buffalo keeps charging, turns around, or rolls a direction."
+
+[sprites."sprites/thrown_dynamite/tdynamite.png"]
+frames = 4
+
+[sprites."sprites/tele_arrow/telea.png"]
+frames = 8
+
+[sprites."sprites/tele_arrow/spb_telea.png"]
+frames = 8
+
+[sprites."sprites/tele_arrow/trail.png"]
+frames = 7
+[[components]]
+
+id = "px.gatling_gun"
+type = "weapon"
+name = "Gatling Gun"
+description = "A rapid-fire gun."
+entry = "components/weapon.lua"
+icon = "sprites/gatling_gun/ico_gatlingg.png"
+default_position = { row = "F3", column = 6 }
+[[components]]
+
+id = "px.thrown_dynamite"
+type = "weapon"
+name = "Thrown Dynamite"
+description = "Charge and throw a heavier, low-bounce dynamite."
+entry = "components/weapon.lua"
+icon = "sprites/thrown_dynamite/ico_tdynamite.png"
+default_position = { row = "F2", column = 8 }
+[[components]]
+
+id = "px.tnt"
+type = "weapon"
+name = "TNT"
+description = "Drop a dynamite with a smaller blast that bursts into three clusters."
+entry = "components/weapon.lua"
+icon = "sprites/tnt/ico_tnt.png"
+default_position = { row = "F5", column = 1 }
+
+[sprites."sprites/tnt/trail.png"]
+frames = 32
+[[components]]
+
+id = "px.tele_arrow"
+type = "weapon"
+name = "Tele Arrow"
+description = "Fires a bouncing projectile; Space detonates it and teleports the worm there."
+entry = "components/weapon.lua"
+icon = "sprites/tele_arrow/ico_telea.png"
+default_position = { row = "F8", column = 6 }
+
+[sprites."sprites/thrown_dynamite/spark.png"]
+frames = 7
+
+[sprites."sprites/girder_launcher/mgirder.png"]
+frames = 32
+
+[sprites."sprites/girder_launcher/mgirderspb.png"]
+frames = 8
+
+[sprites."sprites/girder_launcher/spb_girderl.png"]
+frames = 8
+
+[sprites."sprites/girder_launcher/trail.png"]
+frames = 8
+[[components]]
+
+id = "px.girder_launcher"
+type = "weapon"
+name = "Girder Launcher"
+description = "Fires four mini-girders that push what they strike or become terrain."
+entry = "components/weapon.lua"
+icon = "sprites/girder_launcher/ico_girderl.png"
+default_position = { row = "F7", column = 5 }
+[[components]]
+
+id = "px.sacrifice"
+type = "weapon"
+name = "Sacrifice"
+authors = ["0rang3"]
+description = "Trade 50 HP for five seconds of turn time per step, keeping one HP."
+entry = "components/weapon.lua"
+icon = "sprites/sacrifice/sacrifice_ico.png"
+default_position = { row = "F12", column = 4 }
+[[components]]
+
+id = "px.parkour"
+type = "weapon"
+name = "Parkour"
+authors = ["Zed"]
+credits = "modified by PyroMan and 0rang3"
+description = "Switch on parkour for the turn: Enter kicks the worm off a wall, Backspace bunny-hops it."
+entry = "components/weapon.lua"
+icon = "sprites/parkour/parkour_ico.png"
+default_position = { row = "F12", column = 5 }
+
+[[components.options]]
+key = "wall_jump"
+type = "int"
+min = 1
+max = 10
+default = 2
+label = "Wall kick"
+description = "How hard Enter kicks the worm off a wall."
+
+[[components.options]]
+key = "carry_speed"
+type = "bool"
+default = true
+label = "Wall kick adds speed"
+description = "On: the kick adds the worm's own speed. Off: it kicks at the same speed every time."
+
+[sprites."sprites/drilling_crew/driller.png"]
+frames = 8
+
+[sprites."sprites/drilling_crew/drillerc.png"]
+frames = 12
+
+[sprites."sprites/drilling_crew/trail.png"]
+frames = 9
+[[components]]
+
+id = "px.anti_fall_damage"
+type = "weapon"
+name = "Anti Fall Damage"
+authors = ["PyroMan"]
+description = "For the turn, a worm falls no faster than 8 pixels a frame, so it lands unhurt and in control."
+entry = "components/weapon.lua"
+icon = "sprites/anti_fall_damage/anti_fd_ico.png"
+default_position = { row = "utility", column = 6 }
+[[components]]
+
+id = "px.tazer"
+type = "weapon"
+name = "Tazer"
+authors = ["_Kilburn"]
+description = "Fire a chain-lightning shot that arcs between worms."
+entry = "components/weapon.lua"
+icon = "sprites/tazer/ico_tazer.png"
+default_position = { row = "F3", column = 7 }
+[[components]]
+
+id = "px.drilling_crew"
+type = "weapon"
+name = "Drilling Crew"
+description = "A roaming drill followed by a bouncing worker."
+entry = "components/weapon.lua"
+icon = "sprites/drilling_crew/ico_drillingc.png"
+default_position = { row = "F6", column = 7 }
+[[components]]
+
+id = "px.mines_gun"
+type = "weapon"
+name = "Mines Gun"
+description = "Launch six mines with delayed fuses and small blasts."
+entry = "components/weapon.lua"
+icon = "sprites/mines_gun/icon.png"
+default_position = { row = "F3", column = 8 }
+[[components]]
+
+id = "px.platform"
+type = "weapon"
+name = "Platform"
+description = "Place a fixed platform with 40 health. Mid-air placing possible."
+entry = "components/weapon.lua"
+icon = "sprites/platform/platform_icon.png"
+default_position = { row = "F11", column = 8 }
+[[components]]
+
+id = "px.bulldozer"
+type = "weapon"
+name = "Bulldozer"
+description = "Send a walking digger that tunnels and shoves what it touches."
+entry = "components/weapon.lua"
+icon = "sprites/bulldozer/bdico.png"
+default_position = { row = "F5", column = 8 }
+[[components]]
+
+id = "px.barrel_launcher"
+type = "weapon"
+name = "Barrel Launcher"
+description = "Launch one of five special oil drums, chosen with keys 1-5."
+entry = "components/weapon.lua"
+icon = "sprites/barrel_launcher/bl_ico.png"
+default_position = { row = "F1", column = 8 }
+[[components]]
+
+id = "px.trampoline"
+type = "weapon"
+name = "Trampoline"
+authors = ["ravander"]
+credits = "revised by StepS, sprites by raffie, fix by PyroMan, breakable by 0rang3"
+description = "Trampoline, liked by many, disliked by eule."
+entry = "components/weapon.lua"
+icon = "sprites/trampoline/tramp_ico.png"
+default_position = { row = "utility", column = 8 }
+[[components]]
+
+id = "px.mine_launcher"
+type = "weapon"
+name = "Mine Launcher"
+authors = ["StepS"]
+credits = "improved by 0rang3"
+description = "Fire an instant, sticky or invisible mine, chosen with keys 1-3."
+entry = "components/weapon.lua"
+icon = "sprites/mine_launcher/minelauncher_ico.png"
+default_position = { row = "F1", column = 9 }
+[[components]]
+
+id = "px.gravity_gun"
+type = "weapon"
+name = "Gravity Gun"
+description = "Pull the object you aim at, hold it in front of the worm and throw it."
+entry = "components/weapon.lua"
+icon = "sprites/gravity_gun/gravity_gun_ico.png"
+default_position = { row = "F8", column = 8 }
+
+[[components.options]]
+key = "grabs"
+type = "choice"
+choices = [
+  "infinite",
+  "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20",
+  "21", "22", "23", "24", "25", "26", "27", "28", "29", "30", "31", "32", "33", "34", "35", "36", "37", "38", "39", "40",
+  "41", "42", "43", "44", "45", "46", "47", "48", "49", "50", "51", "52", "53", "54", "55", "56", "57", "58", "59", "60",
+  "61", "62", "63", "64", "65", "66", "67", "68", "69", "70", "71", "72", "73", "74", "75", "76", "77", "78", "79", "80",
+  "81", "82", "83", "84", "85", "86", "87", "88", "89", "90", "91", "92", "93", "94", "95", "96", "97", "98", "99", "100",
+]
+default = "infinite"
+label = "Grabs per use"
+description = "How many times Space can catch something in one use."
+
+[[components.options]]
+key = "grab_worms"
+type = "choice"
+choices = ["all", "own", "off"]
+default = "off"
+label = "Grabs worms"
+description = "All: any worm. Own: only your colour's worms. Off: no worm."
+
+[[components.options]]
+key = "grab_objects"
+type = "bool"
+default = true
+label = "Grabs objects"
+description = "Mines, oil drums, turrets, magnets, trampolines and other things lying about."
+
+[[components.options]]
+key = "grab_projectiles"
+type = "bool"
+default = true
+label = "Grabs projectiles"
+description = "Shells, grenades and anything else in flight."
+
+[[components.options]]
+key = "grab_crates"
+type = "bool"
+default = true
+label = "Grabs crates"
+description = "Off: the gun ignores crates."
+
+[[components.options]]
+key = "grab_graves"
+type = "bool"
+default = true
+label = "Grabs gravestones"
+description = "Off: the gun ignores gravestones."
+[[components]]
+
+id = "px.personal_invisibility"
+type = "weapon"
+name = "Personal Invisibility"
+description = "Invisibility for one worm, for three turns or until it attacks."
+entry = "components/weapon.lua"
+icon = "sprites/personal_invisibility/ico_pinvisibility.png"
+default_position = { row = "utility", column = 9 }
+[[components]]
+
+id = "px.small_worm"
+type = "weapon"
+name = "Small Worm"
+description = "Give the worm the shape of a mine, lighter gravity and more mass until the turn is over."
+entry = "components/weapon.lua"
+icon = "sprites/small_worm/small_ico.png"
+default_position = { row = "utility", column = 10 }
+[[components]]
+
+id = "px.toxic_grenade"
+type = "weapon"
+name = "Toxic Grenade"
+description = "Throw a grenade that releases a lingering poison cloud."
+entry = "components/weapon.lua"
+icon = "sprites/toxic_grenade/img_toxicgren.png"
+default_position = { row = "F2", column = 8 }
+
+[[components.options]]
+key = "poison"
+type = "int"
+min = 1
+max = 200
+default = 2
+label = "Poison"
+description = "Poison per turn that a worm takes from the cloud."
+
+[sprites."sprites/barrel_launcher/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/barrel_launcher/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/barrel_launcher/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/barrel_launcher/draw.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/barrel_launcher/drawd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/barrel_launcher/drawu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/trampoline/tramp.png"]
+frames = 1
+[sprites."sprites/trampoline/jumptramp.png"]
+frames = 1
+[sprites."sprites/trampoline/hold.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/trampoline/holdd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/trampoline/holdu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/trampoline/pick.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/trampoline/pickd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/trampoline/picku.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/mine_launcher/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/mine_launcher/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/mine_launcher/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/mine_launcher/draw.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/mine_launcher/drawd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/mine_launcher/drawu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/gravity_gun/gravity_gun_aiming2_ghost.png"]
+frames = 1
+[sprites."sprites/gravity_gun/portal_gun_glow.png"]
+frames = 1
+[sprites."sprites/gravity_gun/lightning_glow.png"]
+frames = 1
+[sprites."sprites/gravity_gun/gg_beam1.png"]
+frames = 1
+[sprites."sprites/bulldozer/bd.png"]
+frames = 20
+[sprites."sprites/platform/platform_sprite.png"]
+frames = 1
+[sprites."sprites/platform/platform_broken.png"]
+frames = 1
+[sprites."sprites/buffalo/buffalo.png"]
+frames = 20
+fps = 32
+play = "loop"
+
+[sprites."sprites/wings/fly.png"]
+fps = 40
+play = "loop"
+
+[sprites."sprites/wings/fold.png"]
+fps = 24
+play = "loop"
+
+[sprites."sprites/bible_launcher/bible.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hotchkiss/aim.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hotchkiss/aimu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hotchkiss/aimd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hotchkiss/draw.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hotchkiss/drawu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hotchkiss/drawd.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hotchkiss/fire.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hotchkiss/fireu.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/hotchkiss/fired.png"]
+fps = 15
+play = "loop"
+[[components]]
+
+id = "px.bible_launcher"
+type = "weapon"
+name = "Bible Launcher"
+description = "Launch a bible that bounces up to four times, exploding at every bounce."
+entry = "components/weapon.lua"
+icon = "sprites/bible_launcher/bible_ico.png"
+default_position = { row = "F1", column = 3 }
+[[components]]
+
+id = "px.big_cluster_bomb"
+type = "weapon"
+name = "Big Cluster Bomb"
+description = "A cluster bomb with a stronger blast and stronger clusters."
+entry = "components/weapon.lua"
+icon = "cluster_bomb"
+default_position = { row = "F2", column = 2 }
+[[components]]
+
+id = "px.hotchkiss"
+type = "weapon"
+name = "Hotchkiss"
+description = "A machine gun that fires 35 light bullets in bursts of four."
+entry = "components/weapon.lua"
+icon = "sprites/hotchkiss/ico_hotchkiss.png"
+default_position = { row = "F3", column = 2 }
+[[components]]
+
+id = "px.mole_herd_launcher"
+type = "weapon"
+name = "Mole Herd Launcher"
+description = "Launch a mole that walks and splits into three digging moles."
+entry = "components/weapon.lua"
+icon = "sprites/launchers/mhl_ico.png"
+default_position = { row = "F5", column = 5 }
+
+[sprites."sprites/frag_grenade/trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/poison_grenade/poisonc.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/multi_bolt/spb_multib.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/multi_bolt/multib.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/multi_bolt/multibc.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/multi_bolt/trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/multi_bolt/cluster_trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/bomb_omb/bombb.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/bomb_omb/bombbc.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/bomb_omb/trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/bomb_omb/cluster_trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_remote_roller/sremoter.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_remote_roller/remoter.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_remote_roller/trail.png"]
+fps = 15
+play = "loop"
+
+[sprites."sprites/super_remote_roller/cluster_trail.png"]
+fps = 15
+play = "loop"
+[[components]]
+
+id = "px.frag_grenade"
+type = "weapon"
+name = "Frag Grenade"
+authors = ["Curtis"]
+description = "A heavy grenade that explodes on impact."
+entry = "components/weapon.lua"
+icon = "sprites/frag_grenade/ico_frag.png"
+default_position = { row = "F2", column = 1 }
+[[components]]
+
+id = "px.poison_grenade"
+type = "weapon"
+name = "Poison Grenade"
+authors = ["0rang3"]
+description = "A grenade that bursts into five clusters, each releasing a poison cloud."
+entry = "components/weapon.lua"
+icon = "sprites/poison_grenade/ico_pois_gren.png"
+default_position = { row = "F2", column = 5 }
+
+[[components.options]]
+key = "poison"
+type = "int"
+min = 1
+max = 200
+default = 10
+label = "Poison"
+description = "Poison per turn that a worm takes from the clouds."
+[[components]]
+
+id = "px.multi_bolt"
+type = "weapon"
+name = "Multi-Bolt"
+authors = ["Curtis"]
+description = "A bolt that explodes on contact into six bouncing bolts."
+entry = "components/weapon.lua"
+icon = "sprites/multi_bolt/ico_multib.png"
+default_position = { row = "F3", column = 4 }
+[[components]]
+
+id = "px.bomb_omb"
+type = "weapon"
+name = "Bomb-omb"
+authors = ["Curtis"]
+description = "A walking bomb that explodes when it bumps into a worm, scattering sparks."
+entry = "components/weapon.lua"
+icon = "sprites/bomb_omb/ico_bombb.png"
+default_position = { row = "F5", column = 3 }
+[[components]]
+
+id = "px.super_remote_roller"
+type = "weapon"
+name = "Super Remote Roller"
+authors = ["Curtis"]
+description = "Throw a roller that walks and splits into four rollers; Space sets them off."
+entry = "components/weapon.lua"
+icon = "sprites/super_remote_roller/ico_sremoter.png"
+default_position = { row = "F10", column = 6 }
+[[components]]
+
+id = "px.normal_barrel"
+type = "weapon"
+name = "Normal Barrel"
+description = "Launch an oil drum."
+entry = "components/weapon.lua"
+icon = "sprites/normal_barrel/normal_barrel_ico.png"
+default_position = { row = "F10", column = 3 }
+[[components]]
+
+id = "px.crate_grabber"
+type = "weapon"
+name = "Crate Grabber"
+authors = ["0rang3"]
+credits = "in the crate weapons of StepS and rafa``2"
+description = "Click a crate to bring it to the worm."
+entry = "components/weapon.lua"
+icon = "sprites/crate_grabber/icon.png"
+default_position = { row = "utility", column = 4 }
+[[components]]
+
+id = "px.random_trap_crate"
+type = "weapon"
+name = "Random Trap Crate"
+authors = ["StepS", "rafa``2"]
+credits = "with 0rang3"
+description = "A weapon crate with a hidden mine appears somewhere on the map."
+entry = "components/weapon.lua"
+icon = "sprites/random_trap_crate/icon.png"
+default_position = { row = "F6", column = 2 }
+[[components]]
+
+id = "px.underwater_bomb"
+type = "weapon"
+name = "Underwater Bomb"
+authors = ["rafa``2"]
+description = "A swimming worm moors a bomb in the water in front of it; anything that comes near sets it off."
+entry = "components/weapon.lua"
+icon = "sprites/underwater_bomb/wbomb_ico.png"
+default_position = { row = "F6", column = 1 }
+[[components]]
+
+id = "px.magnetic_missile"
+type = "weapon"
+name = "Magnetic Missile"
+authors = ["_Kilburn"]
+description = "A magnet fired like a bazooka: it pulls or pushes mines and missiles for three turns, and sticks in the land it hits nose first. + switches it between attracting and repelling."
+entry = "components/weapon.lua"
+icon = "sprites/magnetic_missile/ico_magmissile.png"
+default_position = { row = "F6", column = 4 }
+[[components]]
+
+id = "px.mine_reveal"
+type = "weapon"
+name = "Mine Reveal"
+description = "Click a mine to give it a fuse of up to three seconds, shown over it until the turn ends. The first use in a match is free."
+entry = "components/weapon.lua"
+icon = "sprites/mine_reveal/mine_reveal_ico.png"
+default_position = { row = "utility", column = 5 }

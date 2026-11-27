@@ -1,0 +1,88 @@
+# Keeper Bee (format_version 2): reddaz's Project X bee, ported from the API 1.0
+# script (`bee.lua`, beside the porting report). Two components: the launcher on
+# the panel, and the map swarm as an add-on with the two settings a profile can
+# change (whether the map is seeded, and with how many bees).
+# Nothing runs until a profile selects it (the mod loader's Profile tab).
+# See README.md.
+id = "spawn.bees"
+name = "Keeper Bee"
+version = "1.2.2"
+author = "reddaz"
+api_version = 5
+format_version = 2
+mod_icon = "mod_icon.png"
+[[components]]
+
+id = "spawn.bees.keeper"
+type = "weapon"
+name = "Keeper Bee"
+description = "Fires a bee that hunts the worm whose turn it is, stings it, lifts it and bursts."
+entry = "weapons/keeper_bee.lua"
+icon = "sprites/beeico.png"
+credits = "Keeper Bee by reddaz (Project X port)"
+default_position = { row = "F1", column = 1 }
+
+[[components.options]]
+key = "bee_health"
+type = "int"
+default = 25
+min = 1
+max = 1000
+label = "Bee health"
+description = "How much damage a fired bee takes before it bursts."
+[[components]]
+
+id = "spawn.bees.swarm"
+type = "feature"
+name = "Map bee swarm"
+description = "Seeds the map with rogue bees on the first turn, one per slice."
+entry = "features/bee_swarm.lua"
+credits = "bee AI by reddaz (Project X port)"
+authors = ["reddaz"]
+
+[[components.options]]
+key = "spawn_map_bees"
+type = "bool"
+default = true
+label = "Bees on the map"
+description = "Seed the map with bees when the first turn starts."
+
+[[components.options]]
+key = "bee_amount"
+type = "int"
+default = 4
+min = 1
+max = 250
+label = "Map bees"
+description = "How many bees to spread across the map, one per slice."
+
+[[components.options]]
+key = "bee_health"
+type = "int"
+default = 25
+min = 1
+max = 1000
+label = "Bee health"
+description = "How much damage a map bee takes before it bursts."
+
+[[components.options]]
+key = "bee_speed"
+type = "int"
+default = 100
+min = 1
+max = 1000
+label = "Bee speed"
+description = "How fast a map bee flies at the worm it chases, in % of its normal speed."
+
+[[components.options]]
+key = "bee_attack"
+type = "choice"
+choices = ["carry", "sting"]
+default = "carry"
+label = "Bee attack"
+description = "carry: the bee lifts the worm it reaches, then bursts. sting: it bursts as it reaches the worm."
+
+[sprites."sprites/health/digits.png"]
+frames = 14
+fps = 1
+play = "loop"

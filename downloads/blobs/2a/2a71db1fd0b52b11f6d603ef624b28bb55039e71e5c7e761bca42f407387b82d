@@ -1,0 +1,108 @@
+# Weather: clear skies, rain and snow, each with its share of the turn cycles.
+id = "core.weather"
+name = "Weather"
+version = "0.3.1"
+author = "WormBench"
+api_version = 5
+format_version = 2
+dependencies = ["wf.sdk"]
+[[components]]
+
+id = "core.weather"
+type = "feature"
+name = "Weather"
+description = "Clear skies, rain and snow, each with its share of the turn cycles."
+entry = "features/weather.lua"
+credits = "Rain sound from Project X's Rain weather, blizzard sound from Project X's weather sounds"
+
+[[components.options]]
+key = "clear_share"
+type = "int"
+default = 20
+min = 0
+max = 100
+shares = "weather"
+label = "Clear (%)"
+description = "How often each weather comes. It's picked again at the start of each turn cycle, once every team has had a turn. Clear, Rain and Snow add up to 100."
+
+[[components.options]]
+key = "rain_share"
+type = "int"
+default = 40
+min = 0
+max = 100
+shares = "weather"
+label = "Rain (%)"
+description = ""
+
+[[components.options]]
+key = "snow_share"
+type = "int"
+default = 40
+min = 0
+max = 100
+shares = "weather"
+label = "Snow (%)"
+description = ""
+
+[[components.options]]
+key = "rain_low"
+type = "int"
+default = 30
+min = 0
+max = 100
+label = "Rain heaviness, lowest (%)"
+description = "How heavy the rain is moves at random between the lowest and the highest, and the rain sound with it. At 0 only the clouds and the dark come."
+
+[[components.options]]
+key = "rain_high"
+type = "int"
+default = 80
+min = 0
+max = 100
+label = "Rain heaviness, highest (%)"
+description = ""
+
+[[components.options]]
+key = "rain_every"
+type = "int"
+default = 20
+min = 1
+max = 300
+label = "Rain heaviness changes every (s)"
+description = "It ramps from one heaviness to the next over this time."
+[[components.options]]
+key = "snow"
+type = "int"
+default = 60
+min = 0
+max = 100
+label = "Snow heaviness (%)"
+description = "How heavy the snowfall is. At 0 only the clouds come."
+
+[[components.options]]
+key = "lightning_chance"
+type = "int"
+default = 30
+min = 0
+max = 100
+label = "Lightning chance (% per minute)"
+description = "The chance of lightning in each minute of rain. It acts as the Lightning Strike does: it heals worms, revives graves, arms mines and blows up crates and oil drums. Near 100 it strikes several times a minute."
+
+[[components.options]]
+key = "settle_depth"
+type = "int"
+default = 10
+min = 2
+max = 40
+label = "Deepest settled snow (px)"
+description = "Snow builds up anywhere on the ground as land that worms stand on, dig and blow up, and frosts the land a little way in."
+
+[[components.options]]
+key = "melt"
+type = "int"
+default = 10
+min = 0
+max = 100
+label = "Melt (% per turn)"
+description = "At the start of each clear or rainy turn, this share of the snowy ground loses its top pixel of snow. Rain melts twice as much."

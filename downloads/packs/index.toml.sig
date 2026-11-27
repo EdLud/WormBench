@@ -1,2 +1,2 @@
-# Ed25519 signature of index.toml by the WormForge catalogue key.
-7b7c1189ad2ec88beae6718e0e2039ab4e90b7e29e3b09d0b75b27ed56579801dd863b7fc3d3834d87fd6bca7f7887c399ebc1640e14fc0ede90bb16b2897004
+# Ed25519 signature of index.toml by the WormBench catalogue key.
+79770f32e5eb2036651eef29251b5663be2c96996ddb56bc1912a9761fa7fc7e54c16ac1fab54be4d253b3b2ccbad02aba73cf34dac2142782e8152df20bce0c
