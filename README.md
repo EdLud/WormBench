@@ -18,8 +18,6 @@ Replays and WormNET are supported out of the box. Start from the [site](https://
 
 **REQUIRES:** Windows 7 or later (or Wine/CrossOver), WormKit, Direct3D 9 (shader). Some WormKit modules clash with WormBench: [Requirements and compatibility](docs/requirements.md)
 
-**STATUS:** Stable, but replay backwards compatibility isn't yet guaranteed.
-
 </div>
 
 ## Credits
