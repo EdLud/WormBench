@@ -1459,7 +1459,7 @@ A sound can also be a line in the voice of a worm's team, from the sound bank th
 wa.sound.play(worm, "speech/Amazing")
 ```
 
-The line is one of the 54 lines of a WA bank (`Amazing`, `Brilliant`, `YesSir`, `Perfect`, ...), case ignored; any other name is an error. It plays as the speech at the end of a turn plays: heard everywhere, wherever the worm is. A target that isn't a worm, or a bank without the line, plays nothing. Skim Voices uses it.
+The line is one of the 54 lines of a WA bank (`Amazing`, `Brilliant`, `YesSir`, `Perfect`, ...), case ignored; any other name is an error. It plays as the speech at the end of a turn plays: heard everywhere, wherever the worm is. A target that isn't a worm, or a bank without the line, plays nothing. The Skim voices switch of Voice effects uses it.
 
 ### `wa.sound.ambient`
 
